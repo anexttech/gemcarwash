@@ -1,0 +1,210 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+.body{
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+.loading-title{
+  font-family: 'Poppins', sans-serif;
+  }
+  .desktop-nav li {
+    position: relative;
+    padding-bottom: 4px; /* Space for the line */
+    transition: color 0.3s ease;
+  }
+  
+  .desktop-nav li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background-color: rgb(22, 76, 148);
+    transition: width 0.7s ease;
+  }
+  
+  .desktop-nav li:hover::after {
+    width: 100%;
+  }
+  
+  .desktop-nav li a:hover {
+    color: rgb(22, 76, 148);
+  }
+  
+  .contact-btn{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background: linear-gradient(135deg, rgb(22, 76, 148), rgb(9, 100, 153));
+    color: whitesmoke;
+  }
+  .contact-btn:hover{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background: linear-gradient(135deg, rgb(4, 59, 131), rgb(55, 143, 194));    
+    color: whitesmoke;
+  }
+  .car-background {
+    background: url("../public/side-car.jpg") no-repeat center center;
+    background-size: cover;  
+    width: 100%;    
+    overflow: hidden;
+              /* Full width */
+  }
+  /* offcanvas */
+  ul li{
+  font-family: 'Poppins', sans-serif;
+  }
+
+  .btn-book {
+   
+    padding: 12px 30px;    
+    background: linear-gradient(135deg, rgb(22, 76, 148), rgb(9, 100, 153));
+    border: none;
+    color: #fff;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+  }
+
+  .btn-book:hover {
+    background: linear-gradient(135deg, rgb(4, 59, 131), rgb(55, 143, 194));    
+  }
+  /* car banner */
+  .car-banner {
+    position: relative;
+    background: url("/public/banner.jpg") no-repeat center center;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;   /* vertical center text */
+    justify-content: center; /* horizontal center text */
+    color: white; /* text color */
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  /* black overlay */
+  .car-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* adjust transparency */
+    z-index: 1;
+  }
+  
+  /* text on top */
+  .car-banner h1,
+  .car-banner p {
+    position: relative;
+    z-index: 2; /* ensures text is above overlay */
+  }
+  
+
+  /*  About Us*/
+  .about-us{
+    background: #000;
+  }
+  .about-h1 {
+    position: relative;
+    display: inline-block; }
+  
+  .about-h1::after {
+    content: '';
+    display: block;        /* allows width & height to work */
+    width: 100%;           /* underline spans full width of text */
+    height: 4px;           /* adjust thickness */
+    background: rgb(55, 143, 194);
+    margin-top: 6px;       /* space between text and line */
+    border-radius:10px;    /* optional: rounded line */
+  }
+  /*Glass style  */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* car bike details */
+  .car-details {
+    background-color: rgb(55, 143, 194);
+    color: #fff;               /* White text */
+    border: none;              /* Remove border */
+    padding: 10px 20px;        /* Add spacing */
+    border-radius: 8px;        /* Rounded corners */
+    font-size: 16px;           /* Readable font size */
+    font-weight: 500;          /* Medium bold */
+    cursor: pointer;           /* Pointer on hover */
+    transition: all 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .car-details:hover {
+    background-color: rgb(40, 120, 170); /* Slightly darker on hover */
+    transform: scale(1.05);              /* Small zoom effect */
+  }
+
+  .carbike {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); */
+    transition: all 0.3s ease;
+  }
+  
+  .carbike:hover {
+    transform: translateY(-8px);
+    /* box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25); */
+  }
+  
+  .details-btn {
+    background: linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255));
+    border: none;
+    color: #0c6bfa;
+    padding: 7px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+  }
+  
+  .details-btn:hover {
+    background: linear-gradient(135deg, rgb(76, 136, 214), rgb(55, 143, 194));
+    box-shadow: 0 6px 15px rgba(55, 143, 194, 0.5);
+    transform: scale(1.05);
+    color: white;
+  }
+  /* contact */
+  .contact-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain; /* keeps same ratio */
+  }
+  
+  .contact-item {
+    min-width: 250px; /* adjust based on your layout */
+    justify-content: center;
+  }
+  
+  
