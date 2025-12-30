@@ -42,10 +42,10 @@ const App = () => {
 
     // Format WhatsApp message
     const message = `Hello, I want to book a wash:
-Name: ${form.name}
-Vehicle: ${form.vehicle}
-Time: ${form.time}
-Address: ${form.address}`;
+    Name: ${form.name}
+    Vehicle: ${form.vehicle}
+    Time: ${form.time}
+    Address: ${form.address}`;
 
     // Open WhatsApp
     const url = `https://wa.me/917904746889?text=${encodeURIComponent(
@@ -97,67 +97,321 @@ Address: ${form.address}`;
     return () => clearTimeout(timer);
   }, []);
 
+  // menu form
+  const [forms, setForms] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    vehicle: "",
+    year: "",
+    date: "",
+    time: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  // ✅ Handle Input Change
+  const handleChanges = (e) => {
+    const { name, value } = e.target;
+    setForms({ ...forms, [name]: value });
+  };
+
+  // ✅ Validation
+  const validate = () => {
+    let newErrors = {};
+
+    if (!forms.name) newErrors.name = "The field is required.";
+    if (!forms.phone) newErrors.phone = "The field is required.";
+    if (!forms.email) newErrors.email = "The field is required.";
+    if (!forms.vehicle) newErrors.vehicle = "The field is required.";
+    if (!forms.year) newErrors.year = "The field is required.";
+    if (!forms.date) newErrors.date = "The field is required.";
+    if (!forms.time) newErrors.time = "The field is required.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // ✅ Submit
+  const handleSubmits = (e) => {
+    e.preventDefault();
+
+    if (validate()) {
+      alert("Form submitted successfully!");
+      console.log(forms);
+    }
+  };
+
+  // ✅ Loader
   if (isLoading) {
     return (
-      <div className="position-relative  min-vh-100 d-flex flex-column justify-content-center align-items-center overflow-hidden">
-        {/* Background Video */}
-        <img
-          src="car.png"
-          width={300}
-          height={300}
-          alt=""
-          className="img-fluid"
-          data-aos="zoom-out"
-        />
-
-        {/* Overlay Content */}
-        <div className="d-flex justify-content-center align-items-center ">
-          <h1
-            className=" fw-bold text-center display-2 loading-title"
-            data-aos="zoom-in"
-            style={{ color: "rgba(55, 143, 194, 0.85)" }}
-          >
-            Welcome GEM Car Wash
-          </h1>
-        </div>
+      <div
+        style={{ background: "black" }}
+        className="min-vh-100 d-flex justify-content-center align-items-center"
+      >
+        <img src="speeddisplay.gif" alt="Loading" />
       </div>
     );
   }
-
   return (
     <>
       <div className="body">
-        <div className="container-fluid video-container" id="home">
+        {/* Top Book Now with details */}
+        <section className="d-none d-md-block" style={{ overflow: "hidden" }}>
+          <div className="row">
+            <div
+              className="col-10 py-2 d-flex justify-content-around align-items-center"
+              style={{ background: "black" }}
+            >
+              <span className="text-white">
+                🕒 Monday–Sunday 6:00AM - 6:00PM
+              </span>
+              <span className="text-white"> 📞 79047-46889</span>
+              <span className="text-white">
+                {" "}
+                30 J.J.Nagar 2nd Street Avaniyapuram, Madurai
+              </span>
+            </div>
+            <button
+              style={{ background: " rgb(22, 76, 148)" }}
+              data-bs-toggle="modal"
+              data-bs-target="#appointmentModal"
+              className="col-2 btn rounded-0 text-white fw-semibold d-flex align-items-center justify-content-center"
+            >
+              + Book Now
+            </button>
+          </div>
+        </section>
+
+        {/* open menu form*/}
+        {/* MODAL */}
+        <div
+          className="modal fade"
+          id="appointmentModal"
+          tabIndex="-1"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div className="modal-content">
+              {/* HEADER */}
+              <div className="modal-header">
+                <h5 className="modal-title">Schedule Appointment</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+
+              {/* BODY */}
+              <div className="modal-body">
+                <form onSubmit={handleSubmits}>
+                  <div className="row g-3">
+                    <div className="col-md-4">
+                      <input
+                        type="text"
+                        name="name"
+                        className="form-control"
+                        placeholder="Your name"
+                        value={forms.name}
+                        onChange={handleChanges}
+                      />
+                      {errors.name && (
+                        <small className="text-danger">{errors.name}</small>
+                      )}
+                    </div>
+
+                    <div className="col-md-4">
+                      <input
+                        type="text"
+                        name="phone"
+                        className="form-control"
+                        placeholder="Phone number"
+                        value={forms.phone}
+                        onChange={handleChanges}
+                      />
+                      {errors.phone && (
+                        <small className="text-danger">{errors.phone}</small>
+                      )}
+                    </div>
+
+                    <div className="col-md-4">
+                      <input
+                        type="email"
+                        name="email"
+                        className="form-control"
+                        placeholder="Email"
+                        value={forms.email}
+                        onChange={handleChanges}
+                      />
+                      {errors.email && (
+                        <small className="text-danger">{errors.email}</small>
+                      )}
+                    </div>
+
+                    <div className="col-md-4">
+                      <input
+                        type="text"
+                        name="vehicle"
+                        className="form-control"
+                        placeholder="Vehicle"
+                        value={forms.vehicle}
+                        onChange={handleChanges}
+                      />
+                      {errors.vehicle && (
+                        <small className="text-danger">{errors.vehicle}</small>
+                      )}
+                    </div>
+
+                    <div className="col-md-4">
+                      <input
+                        type="number"
+                        name="year"
+                        className="form-control"
+                        placeholder="Year"
+                        value={forms.year}
+                        onChange={handleChanges}
+                      />
+                      {errors.year && (
+                        <small className="text-danger">{errors.year}</small>
+                      )}
+                    </div>
+
+                    <div className="col-md-4">
+                      <input
+                        type="date"
+                        name="date"
+                        className="form-control"
+                        value={forms.date}
+                        onChange={handleChanges}
+                      />
+                      {errors.date && (
+                        <small className="text-danger">{errors.date}</small>
+                      )}
+                    </div>
+
+                    <div className="col-md-4">
+                      <input
+                        type="time"
+                        name="time"
+                        className="form-control"
+                        value={forms.time}
+                        onChange={handleChanges}
+                      />
+                      {errors.time && (
+                        <small className="text-danger">{errors.time}</small>
+                      )}
+                    </div>
+
+                    <div className="col-12 mt-3">
+                      <button type="submit" className="btn btn-dark px-4">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section
+          style={{ fontFamily: "Poppins, sans-serif" }}
+          className="d-md-none"
+        >
+          {/* ===== TOP SMALL BAR ===== */}
+          <div
+            className="d-flex justify-content-between align-items-center "
+            style={{ height: "40px", background: "#2f2f2f" }}
+          >
+            <button
+              className="btn text-white"
+              data-bs-toggle="collapse"
+              data-bs-target="#topInfo"
+            >
+              <img
+                src="down-chevron.png"
+                width={30}
+                alt=""
+                className="img-fluid"
+              />
+            </button>
+
+            <button
+              style={{ background: "rgb(22, 76, 148)" }}
+              data-bs-toggle="modal"
+              data-bs-target="#appointmentModal"
+              className="btn rounded-0 text-white fw-semibold py-2"
+            >
+              + Book Now
+            </button>
+          </div>
+
+          {/* ===== COLLAPSIBLE CONTENT ===== */}
+          <div className="collapse" id="topInfo">
+            <div className="p-3 text-white" style={{ background: "#3a3a3a" }}>
+              <p className="mb-2">📍 3261 Anmoore Road Brooklyn, NY 11230</p>
+              <p className="mb-2">📞 800-123-4567, Fax: 718-724-3312</p>
+              <p className="mb-2">✉️ officeone@youremail.com</p>
+              <p className="mb-3">⏰ Mon–Fri: 9:00 am – 5:00 pm</p>
+
+              <div className="d-flex justify-content-between align-items-center">
+                <button
+                  className="btn text-white"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#topInfo"
+                >
+                  ✕
+                </button>
+
+                <button
+                  className="btn fw-semibold"
+                  style={{ background: "#f7b500" }}
+                >
+                  Appointment
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Navbar */}
+        <div
+          className="container-fluid "
+          id="home"
+          style={{ backgroundColor: "black" }}
+        >
           {/* desktop mood */}
           <div className="d-md-flex justify-content-between align-items-center d-none ">
             <img
-              src="logos-removebg-preview.png"
-              width={200}
+              // src="logos-removebg-preview.png"
+              src="gemlogo.jpeg"
+              width={120}
               alt=""
               className="img-fluid"
             />
             <ul className="list-unstyled d-flex justify-content-between nav-list align-items-center gap-5 fw-bold desktop-nav">
               <ul className="d-flex list-unstyled gap-4">
                 <li>
-                  <a href="#home" className="text-decoration-none text-dark">
+                  <a href="#home" className="text-decoration-none text-white">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#car" className="text-decoration-none text-dark">
+                  <a href="#car" className="text-decoration-none text-white">
                     Car Wash
                   </a>
                 </li>
                 <li>
                   <a
                     href="#services"
-                    className="text-decoration-none text-dark"
+                    className="text-decoration-none text-white"
                   >
                     Services
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="text-decoration-none text-dark">
+                  <a href="#about" className="text-decoration-none text-white">
                     About
                   </a>
                 </li>
@@ -174,7 +428,7 @@ Address: ${form.address}`;
           {/*  */}
           {/* This button will only show on small screens */}
           <div className="row py-2 d-md-none ">
-            <div className="col-12 shadow d-flex justify-content-between fixed-top py-3 bg-white  align-items-center">
+            <div className="col-12 shadow d-flex justify-content-between fixed-sticky py-3 bg-white  align-items-center">
               <h1 className="display-4" data-aos="fade-left">
                 GEM CAR WASH
               </h1>
@@ -209,7 +463,7 @@ Address: ${form.address}`;
                     <li className="d-flex align-items-center gap-2">
                       <a
                         href="#home"
-                        className=" text-decoration-none text-dark d-flex align-items-center gap-2"
+                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
                         onClick={handleClose}
                       >
                         <img width={30} src="charging-station.png" alt="" />{" "}
@@ -219,7 +473,7 @@ Address: ${form.address}`;
                     <li className="d-flex align-items-center gap-2">
                       <a
                         href="#car"
-                        className=" text-decoration-none text-dark d-flex align-items-center gap-2"
+                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
                         onClick={handleClose}
                       >
                         <img width={30} src="blue-bg.png" alt="" /> Car Wash
@@ -229,7 +483,7 @@ Address: ${form.address}`;
                     <li className="d-flex align-items-center gap-2">
                       <a
                         href="#services"
-                        className=" text-decoration-none text-dark d-flex align-items-center gap-2"
+                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
                         onClick={handleClose}
                       >
                         <img width={30} src="mechanic.png" alt="" /> Service
@@ -239,7 +493,7 @@ Address: ${form.address}`;
                     <li className="d-flex align-items-center gap-2">
                       <a
                         href="#contact"
-                        className=" text-decoration-none text-dark d-flex align-items-center gap-2"
+                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
                         onClick={handleClose}
                       >
                         <img width={30} src="operator.png" alt="" /> Contact
@@ -249,7 +503,7 @@ Address: ${form.address}`;
                     <li className="d-flex align-items-center gap-2">
                       <a
                         href="#about"
-                        className=" text-decoration-none text-dark d-flex align-items-center gap-2"
+                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
                         onClick={handleClose}
                       >
                         <img width={30} src="info.png" alt="" /> About
@@ -271,9 +525,9 @@ Address: ${form.address}`;
           </div>
         </div>
 
-        <div className="container-fluid car-banner ">
+        <div className="container-fluid  ">
           <div>
-            <h1 className="mt-5">Premium Car & Bike Wash</h1>
+            <h1 className="mt-5 text-center">Premium Car & Bike Wash</h1>
             <p className="d-flex flex-column px-3  py-3 align-items-center ">
               <button
                 className="btn-book w-50"
@@ -351,6 +605,7 @@ Address: ${form.address}`;
                 className="mySwiper"
               >
                 <SwiperSlide>
+                  {" "}
                   <img src="blue-bg.png" alt="Car 3" className="img-fluid" />
                 </SwiperSlide>
               </Swiper>
@@ -457,30 +712,20 @@ Address: ${form.address}`;
           </div>
         </div>
 
-        <div
-          className="container-fluid  py-3"
-          style={{
-            backgroundImage: "url(lable.jpg)",
-            backgroundSize: "cover", // makes it cover full div
-            backgroundPosition: "center", // keeps it centered
-            backgroundRepeat: "no-repeat", // avoid tiling
-          }}
-        >
-          <div className="row p-3 d-flex justify-content-center">
+        <div className="container-fluid">
+          <div className="row d-flex align-items-stretch">
+            {/* LEFT: FORM */}
             <div
-              className="col-12 col-md-6 p-5 text-white"
+              className="col-12 col-md-6 p-5 text-white d-flex flex-column justify-content-center"
               style={{
                 borderRadius: "20px",
-                padding: "20px",
-                background: "rgba(255, 255, 255, 0.1)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                boxShadow: "0 8px 10px rgba(0, 0, 0, 0.3)",
+
+                backdropFilter: "blur(10px)",
                 overflow: "hidden",
-                position: "relative",
               }}
             >
               <h2 className="mb-4">Book Your Wash</h2>
+
               <div className="mb-3">
                 <label className="form-label">Name</label>
                 <input
@@ -534,6 +779,18 @@ Address: ${form.address}`;
                 Submit on WhatsApp
               </button>
             </div>
+
+            {/* RIGHT: FULL HEIGHT IMAGE */}
+            {/* <div
+              className="col-12 col-md-6"
+              style={{
+                backgroundImage: "url('./sidecar.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                minHeight: "100%", // matches left side height
+              }}
+            ></div> */}
           </div>
         </div>
 
@@ -622,7 +879,6 @@ Address: ${form.address}`;
                     className="contact-icon me-2"
                   />
                   <span>mpoobalan15@gmail.com</span>
-                  
                 </div>
               </div>
             </div>
