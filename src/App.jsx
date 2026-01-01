@@ -3,12 +3,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "./App.css";
 import { Button, Offcanvas } from "react-bootstrap";
-// import { FaShower, FaSprayCan, FaTools, FaBroom } from "react-icons/fa";
+// swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
+import { Navigation, Autoplay } from "swiper/modules";
+
 import "swiper/css";
-// Import Autoplay module
-import { Autoplay } from "swiper/modules";
+import "swiper/css/navigation";
+
 import { useNavigate } from "react-router-dom";
 
 const App = () => {
@@ -85,7 +86,30 @@ const App = () => {
     },
   ];
 
+  // Swiper components
+  const slides = [
+    {
+      image: "redcar.jpg",
+      tag: "CARE YOUR CAR",
+      title: "It’s time to Come Clean your Car",
+      desc: "Professional Car Wash Center to help you to get clean vehicle!",
+    },
+    {
+      image: "car2.jpg",
+      tag: "PROFESSIONAL CARE",
+      title: "Give Your Car a New Shine",
+      desc: "We bring back the beauty of your ride.",
+    },
+    {
+      image: "car3.jpg",
+      tag: "BEST SERVICE",
+      title: "Your Car Deserves The Best",
+      desc: "Premium wash and detailing services.",
+    },
+  ];
+
   // use-Effect's
+
 
   useEffect(() => {
     AOS.init({
@@ -167,7 +191,7 @@ const App = () => {
     <>
       <div className="body">
         {/* Top Book Now with details */}
-        <section className="d-none d-md-block" style={{ overflow: "hidden" }}>
+        <section className="d-none  d-md-block" style={{ overflow: "hidden" }}>
           <div className="row">
             <div
               className="col-10 py-2 d-flex justify-content-around align-items-center"
@@ -349,170 +373,147 @@ const App = () => {
         {/* End Top Book Now with details */}
 
         {/* Navbar */}
-        <div
-          className="container-fluid sticky-top"
+        <section
           id="home"
-          // style={{ backgroundColor: "rgb(22, 76, 148)" }}
+          className="sticky-top"
+          style={{ backgroundColor: "rgb(22, 76, 148)" }}
         >
-          {/* desktop mood */}
-          <div
-            className="d-md-flex justify-content-between align-items-center d-none container"
-            style={{ backgroundColor: "rgb(22, 76, 148)" }}
-          >
-            <img
-              // src="logos-removebg-preview.png"
-              src="gemlogo-bg.png"
-              width={100}
-              alt="BrandLogo"
-              className="img-fluid"
-            />
-            <ul className="list-unstyled d-flex justify-content-between nav-list align-items-center gap-5 fw-bold desktop-nav">
-              <ul className="d-flex list-unstyled gap-4">
-                <li>
-                  <a href="#home" className="text-decoration-none text-white">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#car" className="text-decoration-none text-white">
-                    Car Wash
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-decoration-none text-white"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="text-decoration-none text-white">
-                    About
-                  </a>
-                </li>
-              </ul>
-            </ul>
+          {/* ================= DESKTOP NAV ================= */}
+          <div className="d-none d-md-block">
+            <div className="container-md">
+              <div className="d-flex align-items-center justify-content-between py-3">
+                {/* Logo */}
+                <a href="#home">
+                  <img
+                    src="gemlogo-bg.png"
+                    width={90}
+                    alt="Brand Logo"
+                    className="img-fluid"
+                  />
+                </a>
 
-            <button className="contact-btn rounded ">
-              <a href="#contact" className="text-decoration-none text-white">
-                Contact
-              </a>
-            </button>
+                {/* Links */}
+                <ul className="d-flex list-unstyled align-items-center gap-4 fw-semibold mb-0">
+                  <li>
+                    <a
+                      href="#home"
+                      className="text-white nav-hover text-decoration-none"
+                    >
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#car"
+                      className="text-white nav-hover text-decoration-none"
+                    >
+                      Car Wash
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#services"
+                      className="text-white nav-hover text-decoration-none"
+                    >
+                      Services
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#about"
+                      className="text-white nav-hover text-decoration-none"
+                    >
+                      About
+                    </a>
+                  </li>
+                </ul>
+
+                {/* Button */}
+                <a
+                  href="#contact"
+                  className="btn btn-light fw-bold px-4 py-2 rounded-pill"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/*  */}
-          {/* This button will only show on small screens */}
+          {/* ================= MOBILE NAV ================= */}
+          <div className="d-md-none">
+            <div className="container py-3 d-flex align-items-center justify-content-between">
+              <img src="gemlogo-bg.png" width={80} alt="BrandLogo" />
 
-          <div className="row d-md-none ">
-            <div
+              <button className="border-0 bg-transparent" onClick={handleShow}>
+                <img src="menu.png" width={40} alt="menu" />
+              </button>
+            </div>
+
+            <Offcanvas
+              show={show}
+              onHide={handleClose}
+              placement="start"
               style={{ background: "rgb(22, 76, 148)" }}
-              className="col-12 shadow d-flex justify-content-between sticky-top  py-3 align-items-center"
             >
-              <img
-                src="gemlogo-bg.png"
-                className="img-fluid"
-                width={100}
-                alt="BrandLogo"
-              />
-              {/* <h1 className="display-6" data-aos="fade-left">
-                GEM CAR WASH
-              </h1> */}
-              <Button
-                className="d-md-none border-0"
-                onClick={handleShow}
-                style={{ background: "rgb(22, 76, 148)" }}
-              >
-                <img src="menu.png" width={40} alt="" className="img-fluid" />
-              </Button>
+              <Offcanvas.Header closeButton className="text-white">
+                <Offcanvas.Title>Gem Menu</Offcanvas.Title>
+              </Offcanvas.Header>
 
-              <Offcanvas
-                show={show}
-                onHide={handleClose}
-                placement="start" // left side
-                className="d-md-none
-                
-          " // hide on md and above
-                style={{ background: "rgb(22, 76, 148)" }}
-              >
-                <Offcanvas.Header closeButton className="text-white">
-                  <Offcanvas.Title
-                    style={{
-                      fontStyle: "'Poppins', sans-serif",
-                      color: "white",
-                    }}
-                  >
-                    Gem Menu
-                  </Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                  <ul className="list-unstyled fs-2 d-flex flex-column gap-3">
-                    <li className="d-flex align-items-center gap-2">
+              <Offcanvas.Body>
+                <ul className="list-unstyled fs-4 d-flex flex-column gap-3">
+                  {[
+                    ["Home", "home", "charging-station.png"],
+                    ["Car Wash", "car", "blue-bg.png"],
+                    ["Service", "services", "mechanic.png"],
+                    ["Contact", "contact", "operator.png"],
+                    ["About", "about", "info.png"],
+                  ].map(([label, link, icon]) => (
+                    <li key={link}>
                       <a
-                        href="#home"
-                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
+                        href={`#${link}`}
+                        className="text-white text-decoration-none d-flex align-items-center gap-2"
                         onClick={handleClose}
                       >
-                        <img width={30} src="charging-station.png" alt="" />{" "}
-                        Home
+                        <img src={icon} width={28} alt="" />
+                        {label}
                       </a>
                     </li>
-                    <li className="d-flex align-items-center gap-2">
-                      <a
-                        href="#car"
-                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
-                        onClick={handleClose}
-                      >
-                        <img width={30} src="blue-bg.png" alt="" /> Car Wash
-                      </a>
-                    </li>
-
-                    <li className="d-flex align-items-center gap-2">
-                      <a
-                        href="#services"
-                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
-                        onClick={handleClose}
-                      >
-                        <img width={30} src="mechanic.png" alt="" /> Service
-                      </a>
-                    </li>
-
-                    <li className="d-flex align-items-center gap-2">
-                      <a
-                        href="#contact"
-                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
-                        onClick={handleClose}
-                      >
-                        <img width={30} src="operator.png" alt="" /> Contact
-                      </a>
-                    </li>
-
-                    <li className="d-flex align-items-center gap-2">
-                      <a
-                        href="#about"
-                        className=" text-decoration-none text-white d-flex align-items-center gap-2"
-                        onClick={handleClose}
-                      >
-                        <img width={30} src="info.png" alt="" /> About
-                      </a>
-                    </li>
-                  </ul>
-                </Offcanvas.Body>
-              </Offcanvas>
-            </div>
-
-            <div className="col-12 mt-5 py-3">
-              {/* <img
-            src="logos-removebg-preview.png"
-            alt=""
-            data-aos="zoom-in"
-            className="img-fluid mt-5"
-          /> */}
-            </div>
+                  ))}
+                </ul>
+              </Offcanvas.Body>
+            </Offcanvas>
           </div>
-        </div>
-
+        </section>
         {/* End Navbar */}
+
+        <section className="hero-wrapper">
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            navigation
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            loop={true}
+            className="hero-swiper"
+          >
+            {slides.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  className="hero-slide"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                >
+                  <div className="overlay"></div>
+
+                  <div className="hero-content">
+                    <span className="tag">{item.tag}</span>
+                    <h1>{item.title}</h1>
+                    <p>{item.desc}</p>
+                    <button className="hero-btn">Discover More</button>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </section>
+
         <div className="container-fluid  ">
           <div>
             <h1 className="mt-5 text-center">Premium Car & Bike Wash</h1>
