@@ -295,7 +295,7 @@ const App = () => {
           {/* ===== TOP SMALL BAR ===== */}
           <div
             className="d-flex justify-content-between align-items-center py-2"
-            style={{ height: "28px", background: "black" }}
+            style={{ height: "46px", background: "black" }}
           >
             <button
               className="btn text-white"
@@ -345,21 +345,25 @@ const App = () => {
             </div>
           </div>
         </section>
+
         {/* End Top Book Now with details */}
 
         {/* Navbar */}
         <div
-          className="container-fluid "
+          className="container-fluid sticky-top"
           id="home"
-          style={{ backgroundColor: "black" }}
+          // style={{ backgroundColor: "rgb(22, 76, 148)" }}
         >
           {/* desktop mood */}
-          <div className="d-md-flex justify-content-between align-items-center d-none ">
+          <div
+            className="d-md-flex justify-content-between align-items-center d-none container"
+            style={{ backgroundColor: "rgb(22, 76, 148)" }}
+          >
             <img
               // src="logos-removebg-preview.png"
-              src="gemlogo.jpeg"
-              width={120}
-              alt=""
+              src="gemlogo-bg.png"
+              width={100}
+              alt="BrandLogo"
               className="img-fluid"
             />
             <ul className="list-unstyled d-flex justify-content-between nav-list align-items-center gap-5 fw-bold desktop-nav">
@@ -399,21 +403,27 @@ const App = () => {
 
           {/*  */}
           {/* This button will only show on small screens */}
-          <div className="row py-2 d-md-none ">
-            <div className="col-12 shadow d-flex justify-content-between fixed-sticky py-3 bg-white  align-items-center">
-              <h1 className="display-4" data-aos="fade-left">
+
+          <div className="row d-md-none ">
+            <div
+              style={{ background: "rgb(22, 76, 148)" }}
+              className="col-12 shadow d-flex justify-content-between sticky-top  py-3 align-items-center"
+            >
+              <img
+                src="gemlogo-bg.png"
+                className="img-fluid"
+                width={100}
+                alt="BrandLogo"
+              />
+              {/* <h1 className="display-6" data-aos="fade-left">
                 GEM CAR WASH
-              </h1>
+              </h1> */}
               <Button
-                className="d-md-none bg-white border-0"
+                className="d-md-none border-0"
                 onClick={handleShow}
+                style={{ background: "rgb(22, 76, 148)" }}
               >
-                <img
-                  src="hamburger.png"
-                  width={30}
-                  alt=""
-                  className="img-fluid"
-                />
+                <img src="menu.png" width={40} alt="" className="img-fluid" />
               </Button>
 
               <Offcanvas
@@ -421,11 +431,16 @@ const App = () => {
                 onHide={handleClose}
                 placement="start" // left side
                 className="d-md-none
+                
           " // hide on md and above
+                style={{ background: "rgb(22, 76, 148)" }}
               >
-                <Offcanvas.Header closeButton>
+                <Offcanvas.Header closeButton className="text-white">
                   <Offcanvas.Title
-                    style={{ fontStyle: "'Poppins', sans-serif" }}
+                    style={{
+                      fontStyle: "'Poppins', sans-serif",
+                      color: "white",
+                    }}
                   >
                     Gem Menu
                   </Offcanvas.Title>
@@ -496,8 +511,8 @@ const App = () => {
             </div>
           </div>
         </div>
-        
-          {/* End Navbar */}
+
+        {/* End Navbar */}
         <div className="container-fluid  ">
           <div>
             <h1 className="mt-5 text-center">Premium Car & Bike Wash</h1>
