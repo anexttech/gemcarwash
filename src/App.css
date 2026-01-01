@@ -12,6 +12,51 @@
 .loading-title{
   font-family: 'Poppins', sans-serif;
   }
+
+  /* section 1 and 2  */
+  /* book now top button */
+  .book-now-top {
+    position: relative;
+    overflow: hidden;
+    padding: 12px 20px;
+    border-left:5px solid black ;
+    border-radius: 0;
+    
+  }
+  
+  /* LEFT SLANTED SHAPE */
+  .book-now-top::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: #000;
+    transform: skewX(-20deg);
+
+    border: 1px solid black;
+
+  }
+  
+  /* Keep text above shape */
+  .book-now-top {
+    z-index: 1;
+  }
+  
+  .book-now-top span,
+  .book-now-top {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Hover effect */
+  .book-now-top:hover {
+    background: rgb(18, 64, 125);
+  }
+  
+
+  /* nav */
   .desktop-nav li {
     position: relative;
     padding-bottom: 4px; /* Space for the line */

@@ -3,9 +3,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "./App.css";
 import { Button, Offcanvas } from "react-bootstrap";
-
-// import { Swiper, SwiperSlide } from "swiper/react";
-
 // import { FaShower, FaSprayCan, FaTools, FaBroom } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -15,12 +12,19 @@ import { Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 
 const App = () => {
+  // states
   const [isLoading, setisLoading] = useState(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
+  // button-change state
+  const [open, setOpen] = useState(false);
 
+  //  Router Page
   const nav = useNavigate();
+
+  // Form Validation
+
   const [form, setForm] = useState({
     name: "",
     vehicle: "Car",
@@ -81,6 +85,8 @@ const App = () => {
     },
   ];
 
+  // use-Effect's
+
   useEffect(() => {
     AOS.init({
       duration: 1200, // animation duration (ms)
@@ -97,49 +103,52 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // menu form
+  // Book Now  Menu form
+
   const [forms, setForms] = useState({
     name: "",
     phone: "",
-    email: "",
     vehicle: "",
-    year: "",
     date: "",
     time: "",
   });
 
-  const [errors, setErrors] = useState({});
-
-  // ✅ Handle Input Change
   const handleChanges = (e) => {
-    const { name, value } = e.target;
-    setForms({ ...forms, [name]: value });
+    setForms({ ...forms, [e.target.name]: e.target.value });
   };
 
-  // ✅ Validation
-  const validate = () => {
-    let newErrors = {};
-
-    if (!forms.name) newErrors.name = "The field is required.";
-    if (!forms.phone) newErrors.phone = "The field is required.";
-    if (!forms.email) newErrors.email = "The field is required.";
-    if (!forms.vehicle) newErrors.vehicle = "The field is required.";
-    if (!forms.year) newErrors.year = "The field is required.";
-    if (!forms.date) newErrors.date = "The field is required.";
-    if (!forms.time) newErrors.time = "The field is required.";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  // ✅ Submit
   const handleSubmits = (e) => {
     e.preventDefault();
 
-    if (validate()) {
-      alert("Form submitted successfully!");
-      console.log(forms);
-    }
+    const message = `
+  Name: ${forms.name}
+  Phone: ${forms.phone}
+  Vehicle: ${forms.vehicle}
+  Date: ${forms.date}
+  Time: ${forms.time}
+  `;
+
+    window.open(
+      `https://wa.me/917904746889?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+
+    // close modal
+    const modal = document.getElementById("appointmentModal");
+    const instance =
+      window.bootstrap.Modal.getInstance(modal) ||
+      new window.bootstrap.Modal(modal);
+
+    instance.hide();
+
+    // clear form
+    setForms({
+      name: "",
+      phone: "",
+      vehicle: "",
+      date: "",
+      time: "",
+    });
   };
 
   // ✅ Loader
@@ -153,6 +162,7 @@ const App = () => {
       </div>
     );
   }
+
   return (
     <>
       <div className="body">
@@ -172,11 +182,12 @@ const App = () => {
                 30 J.J.Nagar 2nd Street Avaniyapuram, Madurai
               </span>
             </div>
+
             <button
               style={{ background: " rgb(22, 76, 148)" }}
               data-bs-toggle="modal"
               data-bs-target="#appointmentModal"
-              className="col-2 btn rounded-0 text-white fw-semibold d-flex align-items-center justify-content-center"
+              className="col-2 book-now-top  rounded-0 rounded text-white fw-semibold d-flex align-items-center justify-content-center"
             >
               + Book Now
             </button>
@@ -191,9 +202,8 @@ const App = () => {
           tabIndex="-1"
           aria-hidden="true"
         >
-          <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div className="modal-dialog modal-lg modal-dialog-centered">
             <div className="modal-content">
-              {/* HEADER */}
               <div className="modal-header">
                 <h5 className="modal-title">Schedule Appointment</h5>
                 <button
@@ -203,7 +213,6 @@ const App = () => {
                 ></button>
               </div>
 
-              {/* BODY */}
               <div className="modal-body">
                 <form onSubmit={handleSubmits}>
                   <div className="row g-3">
@@ -212,13 +221,11 @@ const App = () => {
                         type="text"
                         name="name"
                         className="form-control"
-                        placeholder="Your name"
+                        placeholder="Name"
                         value={forms.name}
                         onChange={handleChanges}
+                        required
                       />
-                      {errors.name && (
-                        <small className="text-danger">{errors.name}</small>
-                      )}
                     </div>
 
                     <div className="col-md-4">
@@ -226,55 +233,25 @@ const App = () => {
                         type="text"
                         name="phone"
                         className="form-control"
-                        placeholder="Phone number"
+                        placeholder="Phone"
                         value={forms.phone}
                         onChange={handleChanges}
+                        required
                       />
-                      {errors.phone && (
-                        <small className="text-danger">{errors.phone}</small>
-                      )}
                     </div>
 
                     <div className="col-md-4">
-                      <input
-                        type="email"
-                        name="email"
-                        className="form-control"
-                        placeholder="Email"
-                        value={forms.email}
-                        onChange={handleChanges}
-                      />
-                      {errors.email && (
-                        <small className="text-danger">{errors.email}</small>
-                      )}
-                    </div>
-
-                    <div className="col-md-4">
-                      <input
-                        type="text"
+                      <select
                         name="vehicle"
                         className="form-control"
-                        placeholder="Vehicle"
                         value={forms.vehicle}
                         onChange={handleChanges}
-                      />
-                      {errors.vehicle && (
-                        <small className="text-danger">{errors.vehicle}</small>
-                      )}
-                    </div>
-
-                    <div className="col-md-4">
-                      <input
-                        type="number"
-                        name="year"
-                        className="form-control"
-                        placeholder="Year"
-                        value={forms.year}
-                        onChange={handleChanges}
-                      />
-                      {errors.year && (
-                        <small className="text-danger">{errors.year}</small>
-                      )}
+                        required
+                      >
+                        <option value="">Select Vehicle</option>
+                        <option value="Car">Car</option>
+                        <option value="Bike">Bike</option>
+                      </select>
                     </div>
 
                     <div className="col-md-4">
@@ -284,10 +261,8 @@ const App = () => {
                         className="form-control"
                         value={forms.date}
                         onChange={handleChanges}
+                        required
                       />
-                      {errors.date && (
-                        <small className="text-danger">{errors.date}</small>
-                      )}
                     </div>
 
                     <div className="col-md-4">
@@ -297,10 +272,8 @@ const App = () => {
                         className="form-control"
                         value={forms.time}
                         onChange={handleChanges}
+                        required
                       />
-                      {errors.time && (
-                        <small className="text-danger">{errors.time}</small>
-                      )}
                     </div>
 
                     <div className="col-12 mt-3">
@@ -321,59 +294,58 @@ const App = () => {
         >
           {/* ===== TOP SMALL BAR ===== */}
           <div
-            className="d-flex justify-content-between align-items-center "
-            style={{ height: "40px", background: "#2f2f2f" }}
+            className="d-flex justify-content-between align-items-center py-2"
+            style={{ height: "28px", background: "black" }}
           >
             <button
               className="btn text-white"
               data-bs-toggle="collapse"
               data-bs-target="#topInfo"
+              onClick={() => setOpen(!open)}
             >
-              <img
-                src="down-chevron.png"
-                width={30}
-                alt=""
-                className="img-fluid"
-              />
+              {open ? (
+                "✕"
+              ) : (
+                <img
+                  src="down-chevron.png"
+                  width={30}
+                  alt=""
+                  className="img-fluid"
+                />
+              )}
             </button>
 
             <button
               style={{ background: "rgb(22, 76, 148)" }}
               data-bs-toggle="modal"
               data-bs-target="#appointmentModal"
-              className="btn rounded-0 text-white fw-semibold py-2"
+              className="book-now-top rounded-0 text-white fw-semibold py-2"
             >
               + Book Now
             </button>
           </div>
 
           {/* ===== COLLAPSIBLE CONTENT ===== */}
-          <div className="collapse" id="topInfo">
-            <div className="p-3 text-white" style={{ background: "#3a3a3a" }}>
+
+          <div
+            style={{
+              background: "black",
+              overflow: "hidden",
+              maxHeight: open ? "300px" : "0px",
+              opacity: open ? 1 : 1,
+              transition:
+                "max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease",
+            }}
+          >
+            <div style={{ padding: open ? "16px" : "0px", color: "white" }}>
               <p className="mb-2">📍 3261 Anmoore Road Brooklyn, NY 11230</p>
               <p className="mb-2">📞 800-123-4567, Fax: 718-724-3312</p>
               <p className="mb-2">✉️ officeone@youremail.com</p>
               <p className="mb-3">⏰ Mon–Fri: 9:00 am – 5:00 pm</p>
-
-              <div className="d-flex justify-content-between align-items-center">
-                <button
-                  className="btn text-white"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#topInfo"
-                >
-                  ✕
-                </button>
-
-                <button
-                  className="btn fw-semibold"
-                  style={{ background: "#f7b500" }}
-                >
-                  Appointment
-                </button>
-              </div>
             </div>
           </div>
         </section>
+        {/* End Top Book Now with details */}
 
         {/* Navbar */}
         <div
@@ -524,7 +496,8 @@ const App = () => {
             </div>
           </div>
         </div>
-
+        
+          {/* End Navbar */}
         <div className="container-fluid  ">
           <div>
             <h1 className="mt-5 text-center">Premium Car & Bike Wash</h1>
