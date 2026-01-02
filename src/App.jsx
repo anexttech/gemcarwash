@@ -494,7 +494,7 @@ const App = () => {
         {/* End Navbar */}
 
         {/* Swiper section */}
-        <section className="hero-wrapper">
+        <section className="hero-wrapper ">
           <Swiper
             modules={[Navigation, Autoplay]}
             navigation
@@ -525,9 +525,6 @@ const App = () => {
           </Swiper>
         </section>
         {/* end swiper */}
-
-        {/* What we Do */}
-        <section className="whatDo"></section>
 
         {/* About section */}
         <section className="about-section">
@@ -571,6 +568,7 @@ const App = () => {
             </div>
           </div>
         </section>
+        {/* End About */}
 
         <div
           className="container py-5 px-4 px-md-0"
@@ -609,60 +607,8 @@ const App = () => {
           </div>
         </div>
 
-        <div
-          className="container-fluid  mt-5"
-          style={{ overflow: "hidden " }}
-          id="about"
-        >
-          <div className="row flex-row-reverse">
-            <div
-              className="col-12 col-md-6  d-flex justify-content-center align-items-center"
-              style={{ background: "black" }}
-            >
-              <Swiper
-                modules={[Autoplay]}
-                spaceBetween={30}
-                slidesPerView={1}
-                loop={true}
-                autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false,
-                }}
-                className="mySwiper"
-              >
-                <SwiperSlide>
-                  {" "}
-                  <img src="blue-bg.png" alt="Car 3" className="img-fluid" />
-                </SwiperSlide>
-              </Swiper>
-            </div>
-            <div className="col-12 text-white about-us py-4 col-md-6 d-flex flex-column justify-content-center align-items-center">
-              <h2
-                className="about-h1"
-                data-aos="fade-up"
-                data-aos-duration="1000"
-              >
-                About Our Company
-              </h2>
-
-              <p data-aos="fade-up" data-aos-delay="100">
-                We’re a professional Car & Bike Wash team delivering a showroom
-                shine.
-              </p>
-              <p data-aos="fade-up" data-aos-delay="200">
-                From foam wash to detailing, we treat every vehicle with care.
-              </p>
-              <p data-aos="fade-up" data-aos-delay="300">
-                Our experts use modern tools and eco-friendly products for safe
-                cleaning.
-              </p>
-              <p data-aos="fade-up" data-aos-delay="400">
-                Fast service, flexible slots, and complete customer
-                satisfaction.
-              </p>
-            </div>
-          </div>
-        </div>
+        {/* car and bike booking navs */}
+        
 
         <div className="container py-5" style={{ overflow: "hidden" }}>
           <div
