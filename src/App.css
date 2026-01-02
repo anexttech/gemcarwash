@@ -379,7 +379,153 @@
    */
   
   /* About Section */
+ /* =============================
+   SECTION
+============================= */
+.about-section {
+  padding: 80px 0;
+  background: #e6e6e6;
+  overflow: hidden;
+}
 
+/* =============================
+   IMAGE AREA
+============================= */
+.image-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* IMAGE */
+.image-box {
+  position: relative;
+  z-index: 3;
+  left: 50px;
+}
+
+.image-box img {
+  width: 55%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+
+/* =============================
+   LAYERS
+============================= */
+.layer {
+  position: absolute;
+  width: clamp(140px, 25vw, 240px);
+  height: clamp(140px, 25vw, 220px);
+  z-index: 1;
+}
+
+/* TOP LAYER */
+.layer-top {
+  background:  #221e1e;
+  top: -40px;
+  left: 10%;
+}
+
+/* BOTTOM LAYER */
+.layer-bottom {
+  background: #4a1e5c;
+  bottom: -60px;
+  right: 22%;
+}
+
+/* =============================
+   TEXT CONTENT
+============================= */
+.section-label {
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.about-title {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.about-text {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* =============================
+   BUTTON
+============================= */
+.about-btn {
+  padding: 12px 30px;
+  border: 2px solid #000;
+  background: transparent;
+  font-weight: 600;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.about-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 991px) {
+  .image-area {
+    margin-bottom: 40px;
+  }
+
+  .layer {
+    opacity: 0.9;
+  }
+
+  .about-section {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .image-box img {
+    max-width: 90%;
+  }
+
+  .layer {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about-title {
+    font-size: 26px;
+  }
+  .layer-top {
+    background:  #221e1e;;
+    top: -40px;
+    left: 10%;
+  }
+  
+  /* BOTTOM LAYER */
+  .layer-bottom {
+    background:  #4a1e5c;
+    bottom: -30px;
+    right: 5%;
+  }
+  .layer {
+    position: absolute;
+    width: clamp(200px, 25vw, 220px);
+    height: clamp(190px, 25vw, 220px);
+    z-index: 1;
+  }
+  
+}
 
 
   /* Content */

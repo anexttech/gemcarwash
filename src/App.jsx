@@ -527,14 +527,51 @@ const App = () => {
         {/* end swiper */}
 
         {/* What we Do */}
-        <section className="whatDo">
-
-        </section>
+        <section className="whatDo"></section>
 
         {/* About section */}
-        <section className="mt-5">
-          <h1 className="text-center">About Us</h1>
+        <section className="about-section">
+          <div className="container">
+            <div className="row align-items-center">
+              {/* LEFT IMAGE AREA */}
+              <div className="col-lg-6 col-md-12 col-12 image-area">
+                {/* TOP LAYER */}
+                <div className="layer layer-top"></div>
+
+                {/* IMAGE */}
+                <div className="image-box">
+                  <img src="gemlogo-bg.png" alt="Gem Car Wash" />
+                </div>
+
+                {/* BOTTOM LAYER */}
+                <div className="layer layer-bottom"></div>
+              </div>
+
+              {/* RIGHT CONTENT */}
+              <div className="col-lg-6 col-md-12 col-12 content-area mt-3 mt-md-0">
+                <h6 className="section-label">ABOUT US</h6>
+
+                <h2 className="about-title">
+                  Gem Car Wash & <br /> Detailing
+                </h2>
+
+                <p className="about-text">
+                  We provide premium car wash and detailing services using
+                  modern equipment and eco-friendly solutions to keep your
+                  vehicle spotless.
+                </p>
+
+                <p className="about-text">
+                  From exterior washing to deep interior cleaning, we guarantee
+                  quality, care, and customer satisfaction.
+                </p>
+
+                <button className="about-btn">CONTACT US</button>
+              </div>
+            </div>
+          </div>
         </section>
+
         <div
           className="container py-5 px-4 px-md-0"
           style={{ overflow: "hidden" }}
