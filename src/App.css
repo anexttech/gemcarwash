@@ -123,14 +123,30 @@
   .hero-slide {
     height: 100%;
     width: 100%;
-    background-size: contain;   /* 🔥 FIX */
+    background-size: cover;   /* 🔥 FIX */
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
     align-items: center;
     position: relative;
     background-color: #000; /* fallback */
+    animation: zoomInOut 12s ease-in-out infinite;
   }
+
+  /* Smooth zoom animation */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
   
   
   /* Overlay */
@@ -177,7 +193,7 @@
   
   /* Button */
   .hero-btn {
-    background: #2fb4ff;
+    background:  rgb(22, 76, 148) !important;
     border: none;
     padding: 14px 32px;
     border-radius: 50px;
@@ -188,19 +204,128 @@
   }
   
   .hero-btn:hover {
-    background: #199ee8;
+    background: #2083b8 !important;
   }
   
   /* Swiper arrows */
   .swiper-button-prev,
   .swiper-button-next {
-    width: 50px;
-    height: 50px;
-    background: white;
-    border-radius: 50%;
-    color: black;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 75px !important;
+    height: 75px !important;
+    border-radius: 50% !important;
+  
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  
+    /* Soft light border */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  
+    /* Subtle glow */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15) !important;
+  
+    /* Arrow color */
+    color: black !important;
+  
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
+  .swiper-button-prev:hover,
+.swiper-button-next:hover {
+  animation: pulseZoom 3s ease-in-out infinite !important;
+}
+
+@keyframes pulseZoom {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.5);
+  }
+}
+
+  
+  /* Arrow icon */
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 22px !important;
+    font-weight: bold !important;
+    color: rgb(255, 254, 254) !important;
+  }
+  @media (max-width: 768px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 45px !important;
+      height: 45px !important;
+    }
+  
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      font-size: 16px !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 38px !important;
+      height: 38px !important;
+    }
+  
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      font-size: 14px !important;
+    }
+  }
+    
+  .animate > * {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpInfinite 4s ease-in-out infinite;
+  }
+  
+  /* Delays */
+  .delay-1 {
+    animation-delay: 0s;
+  }
+  .delay-2 {
+    animation-delay: 0.3s;
+  }
+  .delay-3 {
+    animation-delay: 0.6s;
+  }
+  .delay-4 {
+    animation-delay: 0.9s;
+  }
+  
+  /* Infinite animation */
+  @keyframes fadeUpInfinite {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  
+    25% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    70% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  }
+  
   
   /* ========== RESPONSIVE ========== */
   
@@ -245,8 +370,18 @@
       font-size: 1.8rem;
     }
   }
+  /* What we Do */
+  /* .whatDo {
+    width: 100%;
+    height: 500px;
+    background: url("bgImage.jpg") center / cover no-repeat;
+  }
+   */
   
-  
+  /* About Section */
+
+
+
   /* Content */
   .hero-content {
     position: relative;

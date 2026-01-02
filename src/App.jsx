@@ -110,7 +110,6 @@ const App = () => {
 
   // use-Effect's
 
-
   useEffect(() => {
     AOS.init({
       duration: 1200, // animation duration (ms)
@@ -404,6 +403,14 @@ const App = () => {
                   </li>
                   <li>
                     <a
+                      href="#home"
+                      className="text-white nav-hover text-decoration-none"
+                    >
+                      Car Detailing
+                    </a>
+                  </li>
+                  <li>
+                    <a
                       href="#car"
                       className="text-white nav-hover text-decoration-none"
                     >
@@ -486,6 +493,7 @@ const App = () => {
         </section>
         {/* End Navbar */}
 
+        {/* Swiper section */}
         <section className="hero-wrapper">
           <Swiper
             modules={[Navigation, Autoplay]}
@@ -497,44 +505,36 @@ const App = () => {
             {slides.map((item, index) => (
               <SwiperSlide key={index}>
                 <div
-                  className="hero-slide"
-                  style={{ backgroundImage: `url(${item.image})` }}
+                  className="hero-slide py-5"
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                  }}
                 >
-                  <div className="overlay"></div>
+                  <div className="overlay "></div>
 
-                  <div className="hero-content">
-                    <span className="tag">{item.tag}</span>
-                    <h1>{item.title}</h1>
-                    <p>{item.desc}</p>
-                    <button className="hero-btn">Discover More</button>
+                  <div className="hero-content animate py-5">
+                    <span className="tag delay-1">{item.tag}</span>
+                    <h1 className="delay-2">{item.title}</h1>
+                    <h1 className="delay-3">Gem car wash </h1>
+                    <p className="delay-3">{item.desc}</p>
+                    <button className="hero-btn delay-4">Our Works</button>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </section>
+        {/* end swiper */}
 
-        <div className="container-fluid  ">
-          <div>
-            <h1 className="mt-5 text-center">Premium Car & Bike Wash</h1>
-            <p className="d-flex flex-column px-3  py-3 align-items-center ">
-              <button
-                className="btn-book w-50"
-                onClick={() => {
-                  nav("/car");
-                }}
-              >
-                Book Now
-              </button>
-              <p className="mt-2 fs-5">
-                Because a clean car isn’t just about looks — it’s about
-                confidence, care, and driving with pride.
-              </p>
-              <p className="mt-2 fs-1">Open and Close Time 6 AM to 6 PM</p>
-            </p>
-          </div>
-        </div>
+        {/* What we Do */}
+        <section className="whatDo">
 
+        </section>
+
+        {/* About section */}
+        <section className="mt-5">
+          <h1 className="text-center">About Us</h1>
+        </section>
         <div
           className="container py-5 px-4 px-md-0"
           style={{ overflow: "hidden" }}
