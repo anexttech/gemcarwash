@@ -630,26 +630,7 @@ const App = () => {
         </div>
 
         {/* Bike Booking */}
-        <section className="container-fluid">
-        <div className="bike-book">
-  <video
-    className="bike-video"
-    autoPlay
-    muted
-    loop
-    playsInline
-  >
-    <source src="/bikewash.mp4" type="video/mp4" />
-  </video>
-
-  <div className="bike-content">
-    <h1 className="outline-fill">Premium Bike Wash Service</h1>
-    <p>Gentle care that keeps your bike shining.</p>
-    <button className="details-btn">Book Now</button>
-  </div>
-</div>
-
-        </section>
+       
 
         <div className="container py-5" style={{ overflow: "hidden" }}>
           <div
