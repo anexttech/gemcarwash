@@ -411,6 +411,14 @@ const App = () => {
                   </li>
                   <li>
                     <a
+                      href="#home"
+                      className="text-white nav-hover text-decoration-none"
+                    >
+                      Gallery
+                    </a>
+                  </li>
+                  <li>
+                    <a
                       href="#car"
                       className="text-white nav-hover text-decoration-none"
                     >
@@ -512,7 +520,7 @@ const App = () => {
                 >
                   <div className="overlay "></div>
 
-                  <div className="hero-content animate py-5">
+                  <div className="hero-content me-5 animate py-5">
                     <span className="tag delay-1">{item.tag}</span>
                     <h1 className="delay-2">{item.title}</h1>
                     <h1 className="delay-3">Gem car wash </h1>
@@ -527,7 +535,7 @@ const App = () => {
         {/* end swiper */}
 
         {/* About section */}
-        <section className="about-section">
+        <section className="about-section ">
           <div className="container">
             <div className="row align-items-center">
               {/* LEFT IMAGE AREA */}
@@ -566,49 +574,82 @@ const App = () => {
                 <button className="about-btn">CONTACT US</button>
               </div>
             </div>
+            <div
+              className="container-fluid py-5"
+              id="services"
+              // style={{ background: "#f5f7fb" }}
+            >
+              <div className="container">
+                <div className="row text-center">
+                  {features.map((feature, index) => {
+                    let aosEffect =
+                      index === 1
+                        ? "fade-left"
+                        : index === 2
+                        ? "fade-up"
+                        : "fade-right";
+
+                    return (
+                      <div
+                        key={index}
+                        className="col-md-6 col-lg-3 mb-4"
+                        data-aos={aosEffect}
+                        data-aos-duration="1500"
+                      >
+                        <div className="service-card h-100">
+                          <div className="icon-wrap">{feature.icon}</div>
+                          <h5 className="mt-3">{feature.title}</h5>
+                          <p>{feature.text}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         {/* End About */}
 
-        <div
-          className="container py-5 px-4 px-md-0"
-          style={{ overflow: "hidden" }}
-          id="services"
-        >
-          <div className="row text-center">
-            {features.map((feature, index) => {
-              // set AOS animation based on index
-              let aosEffect = "";
-              if (index === 1) aosEffect = "fade-left";
-              else if (index === 2) aosEffect = "fade-up";
-              else aosEffect = "fade-right"; // default
+        {/* car booking  */}
+        <div className="container-fluid" style={{ background: "black" }}>
+          <div className="car-book">
+            <div class="car-content">
+              <h1 class="outline-fill">Premium Car Wash Service</h1>
+              <p class="type-line delay-2">
+                Give your car the shine it truly deserves.
+              </p>
 
-              return (
-                <div
-                  key={index}
-                  className="col-md-6 col-lg-3 mb-4"
-                  data-aos={aosEffect}
-                  data-aos-duration="2500"
-                >
-                  <div
-                    className="glass-card p-4 text-white rounded-3 h-100"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, rgba(55, 143, 194, 0.85), rgba(10, 40, 80, 0.85))",
-                    }}
-                  >
-                    <div className="mb-3 fs-1">{feature.icon}</div>
-                    <h5>{feature.title}</h5>
-                    <p className="mb-0">{feature.text}</p>
-                  </div>
-                </div>
-              );
-            })}
+              <p class="type-line delay-5">
+                Book your car wash in just one click.
+              </p>
+
+              <button class="details-btn ">Book Now</button>
+            </div>
           </div>
         </div>
 
-        {/* car and bike booking navs */}
-        
+        {/* Bike Booking */}
+        <section className="container-fluid">
+        <div className="bike-book">
+  <video
+    className="bike-video"
+    autoPlay
+    muted
+    loop
+    playsInline
+  >
+    <source src="/bikewash.mp4" type="video/mp4" />
+  </video>
+
+  <div className="bike-content">
+    <h1 className="outline-fill">Premium Bike Wash Service</h1>
+    <p>Gentle care that keeps your bike shining.</p>
+    <button className="details-btn">Book Now</button>
+  </div>
+</div>
+
+        </section>
 
         <div className="container py-5" style={{ overflow: "hidden" }}>
           <div
