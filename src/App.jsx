@@ -62,8 +62,8 @@ const App = () => {
   const features = [
     {
       icon: <img src="metrial.png" alt="" className="img-fluid" width={100} />,
-      title: "Contactless Washing",
-      text: "Safe and quick washing without any physical contact.",
+      title: " Washing",
+      text: "Safe and quick washing with physical contact.",
     },
     {
       icon: (
@@ -240,6 +240,7 @@ const App = () => {
                 <form onSubmit={handleSubmits}>
                   <div className="row g-3">
                     <div className="col-md-4">
+                      <label htmlFor="">Name</label>
                       <input
                         type="text"
                         name="name"
@@ -252,6 +253,8 @@ const App = () => {
                     </div>
 
                     <div className="col-md-4">
+                      <label htmlFor="">Phone Number</label>
+
                       <input
                         type="text"
                         name="phone"
@@ -264,6 +267,7 @@ const App = () => {
                     </div>
 
                     <div className="col-md-4">
+                      <label htmlFor="">Select Vechicle</label>
                       <select
                         name="vehicle"
                         className="form-control"
@@ -278,6 +282,7 @@ const App = () => {
                     </div>
 
                     <div className="col-md-4">
+                      <label htmlFor="">Date</label>
                       <input
                         type="date"
                         name="date"
@@ -289,6 +294,7 @@ const App = () => {
                     </div>
 
                     <div className="col-md-4">
+                      <label htmlFor="">Time</label>
                       <input
                         type="time"
                         name="time"
@@ -525,7 +531,7 @@ const App = () => {
                     <h1 className="delay-2">{item.title}</h1>
                     <h1 className="delay-3">Gem car wash </h1>
                     <p className="delay-3">{item.desc}</p>
-                    <button className="hero-btn delay-4">Our Works</button>
+                    <button className="hero delay-4">Our Works</button>
                   </div>
                 </div>
               </SwiperSlide>
@@ -624,87 +630,121 @@ const App = () => {
                 Book your car wash in just one click.
               </p>
 
-              <button class="details-btn ">Book Now</button>
+              <button
+                class="details-btn "
+                onClick={() => {
+                  nav("/car");
+                }}
+              >
+                Book Now
+              </button>
             </div>
           </div>
         </div>
+
+        {/* car Detailing */}
+        <section className="container mt-4 mb-4">
+          <h1 className="text-center text-uppercase mb-4">Car Detailing</h1>
+
+          <div className="row mt-5 d-flex justify-content-center">
+            <div className="col-10 col-md-6 col-lg-4 mt-5 mt-md-0">
+              <div className="post-card">
+                <img
+                  src="Detailing.jpg"
+                  alt="Car Detailing Service"
+                  className="post-image"
+                />
+
+                <p className="post-meta">
+                  PAINT CORRECTION &nbsp;—&nbsp; EXTERIOR DETAILING
+                </p>
+
+                <h4 className="post-title">
+                  Professional Paint Polishing & Gloss Enhancement
+                </h4>
+
+                <p className="post-text">
+                  Expert paint correction that removes swirl marks, fine
+                  scratches, and oxidation to restore a deep, mirror-like shine
+                  and long-lasting protection.
+                </p>
+              </div>
+            </div>
+
+            <div className="col-10 col-md-6 col-lg-4 mt-5 mt-md-0">
+              <div className="post-card">
+                <img
+                  src="cardetailing.avif"
+                  alt="Car Detailing Service"
+                  className="post-image"
+                />
+
+                <p className="post-meta">
+                  PROFESSIONAL DETAILING &nbsp;—&nbsp; CAR CARE
+                </p>
+
+                <h4 className="post-title">
+                  Complete Interior & Exterior Car Detailing
+                </h4>
+
+                <p className="post-text">
+                  Our professional detailing service restores your vehicle’s
+                  finish, enhances interior comfort, and protects paint,
+                  leather, and trim using premium-grade products.
+                </p>
+              </div>
+            </div>
+
+            <div className="col-10 col-md-6 col-lg-4 mt-5 mt-md-0">
+              <div className="post-card">
+                <img
+                  src="redcars.jpg"
+                  alt="Car Detailing Service"
+                  className="post-image"
+                />
+                <p className="post-meta">
+                  EXTERIOR DETAILING &nbsp;—&nbsp; FOAM TREATMENT
+                </p>
+
+                <h4 className="post-title">
+                  Advanced Foam Wash & Paint Decontamination
+                </h4>
+
+                <p className="post-text">
+                  Thick foam safely loosens dirt and road grime before contact
+                  washing, reducing swirl marks and preparing the surface for
+                  polishing and protection.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Bike Booking */}
-       
+        <section className="video-hero mt-5">
+          <video className="bg-video" controls autoPlay muted loop playsInline>
+            <source src="/bikewash.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
-        <div className="container py-5" style={{ overflow: "hidden" }}>
-          <div
-            className="row d-flex justify-content-center justify-content-md-around g-4"
-            id="car"
-          >
-            {/* Car Card */}
-            <div className="col-12 col-md-5" data-aos="fade-right">
-              <div
-                className="carbike d-flex justify-content-between align-items-center p-4 shadow rounded-4 h-100"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(55, 143, 194, 0.85), rgba(10, 40, 80, 0.85))",
-                }}
-              >
-                <div className="d-flex flex-column justify-content-center align-items-center text-start">
-                  <h2 className="fw-bold text-white text-center mb-3">
-                    Car Details
-                  </h2>
-                  <button
-                    className="details-btn"
-                    onClick={() => {
-                      nav("/car");
-                    }}
-                  >
-                    Details
-                  </button>
-                </div>
-                <div>
-                  <img
-                    src="blue-bg.png"
-                    alt="Car"
-                    className="img-fluid"
-                    width={280}
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="video-overlay">
+            <h1>Premium Bike Wash </h1>
+            <p>
+              Our professional bike wash safely cleans every part of your
+              motorcycle, removing stubborn dirt while protecting paint, chrome,
+              and mechanical parts.
+            </p>
 
-            {/* Bike Card */}
-            <div className="col-12 col-md-5" data-aos="fade-left">
-              <div
-                className="carbike d-flex justify-content-between align-items-center p-4 shadow rounded-4 h-100 flex-md-row "
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(55, 143, 194, 0.85), rgba(10, 40, 80, 0.85))",
-                }}
-              >
-                <div>
-                  <img
-                    src="bike-removebg-preview.png"
-                    alt="Bike"
-                    className="img-fluid"
-                    width={200}
-                  />
-                </div>
-
-                <div className="d-flex flex-column justify-content-center align-items-center text-start ms-md-4">
-                  <h2 className="fw-bold text-white mb-3 text-center">
-                    Bike Details
-                  </h2>
-                  <button
-                    className="details-btn"
-                    onClick={() => {
-                      nav("/bike");
-                    }}
-                  >
-                    Details
-                  </button>
-                </div>
-              </div>
-            </div>
+            <button
+              className="details-btn"
+              onClick={() => {
+                nav("/bike");
+              }}
+            >
+              Book Now
+            </button>
           </div>
-        </div>
+        </section>
 
         <div className="container-fluid">
           <div className="row d-flex align-items-stretch">

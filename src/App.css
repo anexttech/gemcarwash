@@ -196,7 +196,7 @@
   .hero-btn {
     background:  rgb(22, 76, 148) !important;
     border: none;
-    padding: 14px 32px;
+    /* padding: 14px 32px; */
     border-radius: 50px;
     font-weight: 600;
     color: white;
@@ -558,19 +558,19 @@
   }
   
   /* Button */
-  .hero-btn {
-    background: #2fb4ff;
-    border: none;
-    padding: 14px 32px;
-    border-radius: 50px;
+  .hero {
+    padding: 12px 30px;
+    border:none;
+    background-color:rgb(22, 76, 148);
+    /* background: transparent; */
     font-weight: 600;
-    color: white;
+    transition: 0.3s ease;
     cursor: pointer;
-    transition: 0.3s;
+    color: rgb(255, 255, 255);
   }
   
-  .hero-btn:hover {
-    background: #199ee8;
+  .hero:hover {
+    background: #045c8b85;
   }
   
   /* Swiper Arrows */
@@ -840,7 +840,7 @@
   justify-content: center;
 
   text-align: center;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .car-content {
@@ -942,8 +942,113 @@
   }
 }
 
+/* car detailing */
+.post-card {
+  background: transparent;
+}
 
+/* Image */
+.post-image {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  margin-bottom: 18px;
+}
 
+/* Meta text */
+.post-meta {
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* Title */
+.post-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* Description */
+.post-text {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Subtle hover (same feel) */
+.post-card:hover .post-title {
+  text-decoration: underline;
+}
+
+/* bike book */
+.video-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Video */
+.bg-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Overlay */
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Text */
+.video-overlay h1 {
+  font-size: clamp(26px, 5vw, 52px);
+  margin-bottom: 16px;
+}
+
+.video-overlay p {
+  font-size: clamp(14px, 2.5vw, 18px);
+  max-width: 600px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* Button */
+.btn-book {
+  padding: 14px 32px;
+  font-size: 16px;
+  background: #e10600;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .bg-video {
+    height: 65vh;
+  }
+
+  .video-overlay {
+    height: 65vh;
+  }
+}
 
 
   
