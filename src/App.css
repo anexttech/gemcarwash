@@ -529,6 +529,49 @@
   
 }
 
+/* rating */
+.rating {
+  background-image: url("/sidecar.jpg"); /* put image in public folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 40px 20px;
+  margin: 30px auto;
+  border-radius: 12px;
+  color: #fff;
+  position: relative;
+}
+.rating::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.rating .row {
+  position: relative;
+  z-index: 1;
+}
+
+
+.rating-box h2 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.rating-box p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0.9;
+}
+
 
   /* Content */
   .hero-content {
@@ -826,7 +869,7 @@
       rgba(0, 0, 0, 0.65),
       rgba(0, 0, 0, 0.65)
     ),
-    url("Lamborghini.jpg");
+    url("./Lamborghini.jpg");
 
   background-size: cover;
   background-position: center;

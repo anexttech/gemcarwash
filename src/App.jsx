@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Counter from "./Counter";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./App.css";
@@ -23,41 +24,6 @@ const App = () => {
 
   //  Router Page
   const nav = useNavigate();
-
-  // Form Validation
-
-  const [form, setForm] = useState({
-    name: "",
-    vehicle: "Car",
-    time: "",
-    address: "",
-  });
-
-  // Handle input change
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  // Handle submit
-  const handleSubmit = () => {
-    if (!form.name || !form.time || !form.address) {
-      alert("Please fill all fields!");
-      return;
-    }
-
-    // Format WhatsApp message
-    const message = `Hello, I want to book a wash:
-    Name: ${form.name}
-    Vehicle: ${form.vehicle}
-    Time: ${form.time}
-    Address: ${form.address}`;
-
-    // Open WhatsApp
-    const url = `https://wa.me/917904746889?text=${encodeURIComponent(
-      message
-    )}`;
-    window.open(url, "_blank");
-  };
 
   const features = [
     {
@@ -617,6 +583,40 @@ const App = () => {
         </section>
         {/* End About */}
 
+        {/* Rating */}
+        <section className="container p-4 ">
+          <div className="row text-center py-5 rating">
+            <div className="col-12 col-md-6 col-lg-3 mb-4">
+              <div className="rating-box">
+                <Counter end={3} />
+                <p>Years of Experience</p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-3 mb-4">
+              <div className="rating-box">
+                <Counter end={2000} />
+                <p>Total Vehicles Detailed</p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-3 mb-4">
+              <div className="rating-box">
+                <Counter end={17} />
+                <p>Awards & Recognitions</p>
+              </div>
+            </div>
+
+            <div className="col-12 col-md-6 col-lg-3 mb-4">
+              <div className="rating-box">
+                <Counter end={2000} />
+                <p>Trusted Clients</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* end rating */}
+
         {/* car booking  */}
         <div className="container-fluid" style={{ background: "black" }}>
           <div className="car-book">
@@ -641,6 +641,7 @@ const App = () => {
             </div>
           </div>
         </div>
+        {/* end car booking */}
 
         {/* car Detailing */}
         <section className="container mt-4 mb-4">
@@ -719,6 +720,7 @@ const App = () => {
             </div>
           </div>
         </section>
+        {/*end car Detailing */}
 
         {/* Bike Booking */}
         <section className="video-hero mt-5">
@@ -745,183 +747,9 @@ const App = () => {
             </button>
           </div>
         </section>
+        {/*end Bike Booking */}
 
-        <div className="container-fluid">
-          <div className="row d-flex align-items-stretch">
-            {/* LEFT: FORM */}
-            <div
-              className="col-12 col-md-6 p-5 text-white d-flex flex-column justify-content-center"
-              style={{
-                borderRadius: "20px",
-
-                backdropFilter: "blur(10px)",
-                overflow: "hidden",
-              }}
-            >
-              <h2 className="mb-4">Book Your Wash</h2>
-
-              <div className="mb-3">
-                <label className="form-label">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  className="form-control"
-                  placeholder="Enter your name"
-                />
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label">Choose Vehicle</label>
-                <select
-                  name="vehicle"
-                  value={form.vehicle}
-                  onChange={handleChange}
-                  className="form-select"
-                >
-                  <option value="Car">Car</option>
-                  <option value="Bike">Bike</option>
-                </select>
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label">Choose Time (6 AM - 6 PM)</label>
-                <input
-                  type="time"
-                  name="time"
-                  value={form.time}
-                  min="06:00"
-                  max="18:00"
-                  onChange={handleChange}
-                  className="form-control"
-                />
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label">Address</label>
-                <textarea
-                  name="address"
-                  value={form.address}
-                  onChange={handleChange}
-                  className="form-control"
-                  placeholder="Enter your address"
-                ></textarea>
-              </div>
-
-              <button onClick={handleSubmit} className="btn btn-primary w-100">
-                Submit on WhatsApp
-              </button>
-            </div>
-
-            {/* RIGHT: FULL HEIGHT IMAGE */}
-            {/* <div
-              className="col-12 col-md-6"
-              style={{
-                backgroundImage: "url('./sidecar.jpg')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                minHeight: "100%", // matches left side height
-              }}
-            ></div> */}
-          </div>
-        </div>
-
-        <div
-          className="container-fluid mt-5 p-3"
-          style={{ background: "black" }}
-          id="contact"
-        >
-          <h1 className="text-uppercase fs-1 text-white text-center">
-            Contact
-          </h1>
-          <div
-            style={{ width: "100%", height: "2px" }}
-            className="text-white bg-white"
-          ></div>
-          <div className="row mt-4 py-3">
-            <div className="col-12 col-sm-6 col-md-4">
-              <h1 className="text-white">Gem Car Wash</h1>
-              <span className="text-white fs-5">
-                Premium car wash solutions – trusted for shine & care.
-              </span>{" "}
-              <br />
-            </div>
-            <div className="col-12 col-sm-6 col-md-4 d-flex flex-column align-items-start mt-3 mt-md-0 ">
-              <h1 className="text-white text-center">Quick Link</h1>
-              <ul className="list-unstyled" style={{ gap: "10px" }}>
-                <li>
-                  <a href="#home" className="text-white text-decoration-none">
-                    {" "}
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-white text-decoration-none"
-                  >
-                    Service
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="text-white text-decoration-none">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-white text-decoration-none"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-12 col-sm-6 col-md-4 text-white d-flex flex-column align-items-start mt-3 mt-md-0">
-              <h1 className="">Follow Us</h1>
-              <div className="contact-info d-flex flex-column">
-                <div className="contact-item d-flex align-items-center mb-2">
-                  <img
-                    src="whatsapp.png"
-                    alt="WhatsApp"
-                    className="contact-icon me-2"
-                  />
-                  <span>7904746889</span>
-                </div>
-
-                <div className="contact-item d-flex align-items-center mb-2">
-                  <img
-                    src="instagram.png"
-                    alt="Instagram"
-                    className="contact-icon me-2"
-                  />
-                  <a
-                    href="https://www.instagram.com/gem_water_wash/"
-                    className="text-white"
-                  >
-                    gem_water_wash
-                  </a>
-                </div>
-
-                <div className="contact-item d-flex align-items-center mb-2">
-                  <img
-                    src="gmail.png"
-                    alt="Gmail"
-                    className="contact-icon me-2"
-                  />
-                  <span>mpoobalan15@gmail.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style={{ width: "100%", height: "2px" }}
-          className="text-white bg-white"
-        ></div>
+        {/* Price Detail */}
       </div>
     </>
   );
