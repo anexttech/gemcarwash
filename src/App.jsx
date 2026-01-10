@@ -691,7 +691,7 @@ const App = () => {
         {/* end rating */}
 
         {/* car booking  */}
-        <div className="container-fluid" style={{ background: "black" }}>
+        <div className="container-fluid">
           <div className="car-book">
             <div class="car-content">
               <h1 class="outline-fill">Premium Car Wash Service</h1>
