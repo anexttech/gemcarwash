@@ -865,10 +865,7 @@
 }
 
 .car-book {
-  background-image: linear-gradient(
-      rgba(0, 0, 0, 0.65),
-      rgba(0, 0, 0, 0.65)
-    ),
+  background-image: 
     url("./Lamborghini.jpg");
 
   background-size: cover;
