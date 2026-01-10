@@ -55,19 +55,26 @@ const App = () => {
   // Swiper components
   const slides = [
     {
-      image: "redcar.jpg",
+      image: "Lamborghini.jpg",
+      tag: "Premium Service",
+      title: "Give Your Car the Care It Deserves",
+      desc: "High-quality detailing services that restore shine, protect paint, and keep your car looking brand new.",
+    },
+
+    {
+      image: "redcars.jpg",
       tag: "CARE YOUR CAR",
       title: "It’s time to Come Clean your Car",
       desc: "Professional Car Wash Center to help you to get clean vehicle!",
     },
     {
-      image: "car2.jpg",
+      image: "sidecar.jpg",
       tag: "PROFESSIONAL CARE",
       title: "Give Your Car a New Shine",
       desc: "We bring back the beauty of your ride.",
     },
     {
-      image: "car3.jpg",
+      image: "cardetailing.avif",
       tag: "BEST SERVICE",
       title: "Your Car Deserves The Best",
       desc: "Premium wash and detailing services.",
@@ -138,6 +145,72 @@ const App = () => {
       date: "",
       time: "",
     });
+  };
+  // Price Book
+  const pricingPlans = [
+    {
+      title: "Express Wash",
+      price: "24.99",
+      duration: "15 min",
+      features: ["Soft-cloth Wash", "Spot-free Rinse", "Spot-free Thermal Dry"],
+    },
+    {
+      title: "Supreme Wash",
+      price: "32.99",
+      duration: "30 min",
+      features: [
+        "Soft-cloth Wash",
+        "Spot-free Rinse",
+        "Spot-free Thermal Dry",
+        "Rain shield",
+        "Triple Foam",
+      ],
+    },
+    {
+      title: "Ultra Fullservice",
+      price: "45.99",
+      duration: "45 min",
+      best: true,
+      features: [
+        "Soft-cloth Wash",
+        "Spot-free Rinse",
+        "Spot-free Thermal Dry",
+        "Rain shield",
+        "Triple Foam",
+        "Tire Dressing",
+      ],
+    },
+    {
+      title: "Ultimate Shine",
+      price: "59.99",
+      duration: "70 min",
+      features: [
+        "Soft-cloth Wash",
+        "Spot-free Rinse",
+        "Spot-free Thermal Dry",
+        "Rain shield",
+        "Triple Foam",
+        "Tire Dressing",
+        "Vacuum & Wipe Console",
+      ],
+    },
+  ];
+  const priceviabooking = (plan) => {
+    const message = `
+  Car Wash Booking 🚗✨
+  
+  Plan: ${plan.title}
+  Price: $${plan.price}
+  Duration: ${plan.duration}
+  
+  Services:
+  ${plan.features.map((f) => `- ${f}`).join("\n")}
+  `;
+
+    window.open(
+      `https://wa.me/917904746889?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
   };
 
   // ✅ Loader
@@ -750,6 +823,51 @@ const App = () => {
         {/*end Bike Booking */}
 
         {/* Price Detail */}
+        <section
+          className="pricing-section s-flex flex-column"
+          style={{ overflowX: "hidden" }}
+        >
+          <div className="pricing-overlay">
+            <span className="pricing-tag">PRICING PLANS</span>
+            <h2>Choose your Package</h2>
+            <p>
+              Unlimited Washes is for you! Wash whenever you want and enjoy the
+              ease of auto monthly billing and you can cancel any time.
+            </p>
+          </div>
+          <div className="row g-4 p-2">
+            {pricingPlans.map((plan, index) => (
+              <div className="col-lg-3 col-md-6" key={index}>
+                <div className={`wash-card ${plan.best ? "best" : ""}`}>
+                  {plan.best && <span className="badge">Best Plan</span>}
+
+                  <h6 className="plan-title">{plan.title}</h6>
+
+                  <div className="price-box">
+                    <span className="currency">$</span>
+                    {plan.price.split(".")[0]}
+                    <span className="cents">{plan.price.split(".")[1]}</span>
+                  </div>
+
+                  <p className="duration">Duration: {plan.duration}</p>
+
+                  <ul className="features">
+                    {plan.features.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+
+                  <button
+                    className="btn choose-btn"
+                    onClick={() => priceviabooking(plan)}
+                  >
+                    Choose Plan
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
     </>
   );
