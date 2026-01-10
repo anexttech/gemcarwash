@@ -149,52 +149,41 @@ const App = () => {
   // Price Book
   const pricingPlans = [
     {
-      title: "Express Wash",
-      price: "24.99",
-      duration: "15 min",
-      features: ["Soft-cloth Wash", "Spot-free Rinse", "Spot-free Thermal Dry"],
-    },
-    {
-      title: "Supreme Wash",
-      price: "32.99",
-      duration: "30 min",
+      title: "Sedan Monthly Package",
+      price: "₹2000",
+      duration: "4 Washes / Month",
       features: [
-        "Soft-cloth Wash",
-        "Spot-free Rinse",
-        "Spot-free Thermal Dry",
-        "Rain shield",
-        "Triple Foam",
+        "4 Exterior Washes",
+        "₹500 per Wash",
+        "Full Body Wax ₹200",
+        "Wax Offer Price ₹100",
       ],
     },
     {
-      title: "Ultra Fullservice",
-      price: "45.99",
-      duration: "45 min",
+      title: "SUV Monthly Package",
+      price: "₹2400",
+      duration: "4 Washes / Month",
       best: true,
       features: [
-        "Soft-cloth Wash",
-        "Spot-free Rinse",
-        "Spot-free Thermal Dry",
-        "Rain shield",
-        "Triple Foam",
-        "Tire Dressing",
+        "4 Exterior Washes",
+        "₹600 per Wash",
+        "Full Body Wax Polish ₹300",
+        "Wax Offer Price ₹150",
       ],
     },
     {
-      title: "Ultimate Shine",
-      price: "59.99",
-      duration: "70 min",
+      title: "MPV Monthly Package",
+      price: "₹2400",
+      duration: "4 Washes / Month",
       features: [
-        "Soft-cloth Wash",
-        "Spot-free Rinse",
-        "Spot-free Thermal Dry",
-        "Rain shield",
-        "Triple Foam",
-        "Tire Dressing",
-        "Vacuum & Wipe Console",
+        "4 Exterior Washes",
+        "₹600 per Wash",
+        "Full Body Wax Polish ₹300",
+        "Wax Offer Price ₹150",
       ],
     },
   ];
+
   const priceviabooking = (plan) => {
     const message = `
   Car Wash Booking 🚗✨
@@ -241,7 +230,7 @@ const App = () => {
               <span className="text-white"> 📞 79047-46889</span>
               <span className="text-white">
                 {" "}
-                30 J.J.Nagar 2nd Street Avaniyapuram, Madurai
+                12/A Pampayan Ambalam Lane , Avaniyapuram , Madurai- 625012
               </span>
             </div>
 
@@ -406,7 +395,9 @@ const App = () => {
             }}
           >
             <div style={{ padding: open ? "16px" : "0px", color: "white" }}>
-              <p className="mb-2">📍 3261 Anmoore Road Brooklyn, NY 11230</p>
+              <p className="mb-2">
+                📍12/A Pampayan Ambalam Lane , Avaniyapuram , Madurai- 625012
+              </p>
               <p className="mb-2">📞 800-123-4567, Fax: 718-724-3312</p>
               <p className="mb-2">✉️ officeone@youremail.com</p>
               <p className="mb-3">⏰ Mon–Fri: 9:00 am – 5:00 pm</p>
@@ -486,15 +477,18 @@ const App = () => {
                       About
                     </a>
                   </li>
+                  <li>
+                    <a
+                      href="#contact"
+                      className="text-white nav-hover text-decoration-none"
+                    >
+                      Contact
+                    </a>
+                  </li>
                 </ul>
 
                 {/* Button */}
-                <a
-                  href="#contact"
-                  className="btn btn-light fw-bold px-4 py-2 rounded-pill"
-                >
-                  Contact
-                </a>
+                <div></div>
               </div>
             </div>
           </div>
@@ -691,7 +685,7 @@ const App = () => {
         {/* end rating */}
 
         {/* car booking  */}
-        <div className="container-fluid">
+        <div className="container-fluid" style={{ background: "black" }}>
           <div className="car-book">
             <div class="car-content">
               <h1 class="outline-fill">Premium Car Wash Service</h1>
@@ -824,7 +818,7 @@ const App = () => {
 
         {/* Price Detail */}
         <section
-          className="pricing-section s-flex flex-column"
+          className="pricing-section d-flex flex-column mt-5 "
           style={{ overflowX: "hidden" }}
         >
           <div className="pricing-overlay">
@@ -837,14 +831,14 @@ const App = () => {
           </div>
           <div className="row g-4 p-2">
             {pricingPlans.map((plan, index) => (
-              <div className="col-lg-3 col-md-6" key={index}>
+              <div className="col-lg-4 col-md-6" key={index}>
                 <div className={`wash-card ${plan.best ? "best" : ""}`}>
                   {plan.best && <span className="badge">Best Plan</span>}
 
                   <h6 className="plan-title">{plan.title}</h6>
 
                   <div className="price-box">
-                    <span className="currency">$</span>
+                    {/* <span className="currency">$</span> */}
                     {plan.price.split(".")[0]}
                     <span className="cents">{plan.price.split(".")[1]}</span>
                   </div>
@@ -868,6 +862,9 @@ const App = () => {
             ))}
           </div>
         </section>
+
+        {/* Footer */}
+        <section className="container-fluid footer"></section>
       </div>
     </>
   );

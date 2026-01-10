@@ -863,25 +863,25 @@
     -webkit-text-stroke: 1.5px #fff;
   }
 }
-
 .car-book {
-  background-image: 
-    url("./Lamborghini.jpg");
-
+  background-image: url("./Lamborghini.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   width: 100%;
-  min-height: 100vh;
+  min-height: 100svh; /* mobile-safe */
 
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-align: center;
-  /* padding: 20px; */
 }
+.car-book {
+  min-height: 100vh;
+  min-height: 100dvh; /* newer browsers */
+}
+
 
 .car-content {
   color: #fff;
@@ -1082,22 +1082,16 @@
 /* Mobile */
 @media (max-width: 768px) {
   .bg-video {
-    height: 65vh;
+    height: 100vh;
   }
 
   .video-overlay {
-    height: 65vh;
+    height: 100vh;
   }
 }
 
 /* Price Tags */
 .pricing-section {
-  position: relative;
-  width: 100%;
-  min-height: 300px;
-  background-image: url("/images/pricing-bg.jpg"); /* your image */
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1107,7 +1101,7 @@
   text-align: center;
   color: #0b1c39;
   background: rgba(255, 255, 255, 0.85); /* light overlay like your image */
-  padding: 40px 20px;
+  /* padding: 40px 20px; */
   max-width: 800px;
   border-radius: 6px;
 }
@@ -1299,16 +1293,18 @@
     transform: scale(1.05);
     color: white;
   }
-  /* contact */
-  .contact-icon {
-    width: 30px;
-    height: 30px;
-    object-fit: contain; /* keeps same ratio */
-  }
+
+  /* Footer */
+  .footer {
+    background-image: url("/footercar.jpg"); /* put image in public folder */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   
-  .contact-item {
-    min-width: 250px; /* adjust based on your layout */
-    justify-content: center;
+    padding: 100px 200px;
+    margin: 30px auto;
+    /* border-radius: 12px; */
+    color: #fff;
+    position: relative;
   }
-  
   
