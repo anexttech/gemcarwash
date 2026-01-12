@@ -685,27 +685,25 @@ const App = () => {
         {/* end rating */}
 
         {/* car booking  */}
-        <div className="container-fluid" style={{ background: "black" }}>
-          <div className="car-book">
-            <div class="car-content">
-              <h1 class="outline-fill">Premium Car Wash Service</h1>
-              <p class="type-line delay-2">
-                Give your car the shine it truly deserves.
-              </p>
+        <div className="container-fluid car-book">
+          <div class="car-content">
+            <h1 class="outline-fill">Premium Car Wash Service</h1>
+            <p class="type-line delay-2">
+              Give your car the shine it truly deserves.
+            </p>
 
-              <p class="type-line delay-5">
-                Book your car wash in just one click.
-              </p>
+            <p class="type-line delay-5">
+              Book your car wash in just one click.
+            </p>
 
-              <button
-                class="details-btn "
-                onClick={() => {
-                  nav("/car");
-                }}
-              >
-                Book Now
-              </button>
-            </div>
+            <button
+              class="details-btn "
+              onClick={() => {
+                nav("/car");
+              }}
+            >
+              Book Now
+            </button>
           </div>
         </div>
         {/* end car booking */}
@@ -864,7 +862,187 @@ const App = () => {
         </section>
 
         {/* Footer */}
-        <section className="container-fluid footer"></section>
+        <section className="container-fluid footer mb-0">
+          <div className="container">
+            <div className="row py-3 py-md-5">
+              <div className="col-6 d-none d-md-flex">
+                <ul className="d-flex list-unstyled" style={{ gap: "20px" }}>
+                  <li>
+                    <a href="/" className="nav-link-custom">
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/about" className="nav-link-custom">
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/gallery" className="nav-link-custom">
+                      Gallery
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/car-detailing" className="nav-link-custom">
+                      Car Detailing
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/service" className="nav-link-custom">
+                      Service
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/car-wash" className="nav-link-custom">
+                      Car Wash
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="col-6 d-none d-md-flex justify-content-center">
+                <ul
+                  className="d-flex list-unstyled align-items-center"
+                  style={{ gap: "20px" }}
+                >
+                  <li className="h4 fw-bold">Connect With Us</li>
+
+                  <li>
+                    <a
+                      href="https://www.instagram.com/gem_car__wash/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="nav-link-custom"
+                    >
+                      <img width={40} src="./instagram.png" alt="Instagram" />
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="https://wa.me/917904746889"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="nav-link-custom"
+                    >
+                      <img width={40} src="./whatsapp.png" alt="WhatsApp" />
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="tel:+917904746889" className="nav-link-custom">
+                      <img width={40} src="./youtube.png" alt="YouTube" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="row d-md-none d-flex align-items-center mb-3 ">
+              <div className="col-6">
+                <h6>Connect With Us</h6>
+              </div>
+              <div className="col-6 justify-content-center">
+                <ul
+                  className="d-flex list-unstyled align-items-center"
+                  style={{ gap: "20px" }}
+                >
+                  <li>
+                    <a
+                      href="https://www.instagram.com/gem_car__wash/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        width={40}
+                        src="./instagram.png"
+                        alt="Instagram"
+                        className="img-fluid"
+                      />
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="https://wa.me/917904746889"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        width={40}
+                        src="./whatsapp.png"
+                        alt="WhatsApp"
+                        className="img-fluid"
+                      />
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="tel:+917904746889">
+                      <img
+                        width={40}
+                        src="./youtube.png"
+                        alt="Call"
+                        className="img-fluid"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="row d-flex justify-content-between">
+              <div className="col-12 col-md-6 col-lg-3 ">
+                <h4 className="fw-bold">Our Address</h4>
+                <div style={{ lineHeight: "30px" }}>
+                  12/A Pampayan Ambalam Lane,
+                  <br />
+                  Avaniyapuram,
+                  <br />
+                  Madurai – 625012
+                </div>
+              </div>
+
+              <div className="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+                <h4 className="fw-bold">Opening Hours</h4>
+                <div style={{ lineHeight: "30px" }}>
+                  Monday – Saturday
+                  <br />
+                  09:00 AM – 06:00 PM
+                  <br />
+                  Sunday
+                  <br />
+                  08:00 AM – 08:00 PM
+                </div>
+              </div>
+
+              <div className="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+                <h4 className="fw-bold">Contact</h4>
+                <div style={{ lineHeight: "30px" }}>
+                  79047-46889
+                  <br />
+                  If you have any question, feel free to contact us
+                  <br />
+                  <span className="text-warning">mpoobalanr15@gmail.com</span>
+                </div>
+              </div>
+            </div>
+            <hr className="bg-white" />
+
+            <div className="row text-center text-md-start">
+              <div className="col-12 col-md-6 mb-2 mb-md-0">
+                <span>© 2026 All rights reserved</span>
+              </div>
+
+              <div className="col-12 col-md-6 text-md-end">
+                <span>
+                  Gem car wash detailing Developed by{" "}
+                  <span className="text-warning">ANextTech</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
