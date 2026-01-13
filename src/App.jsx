@@ -217,6 +217,24 @@ const App = () => {
   return (
     <>
       <div className="body">
+        {/* Mobile and Whatsapp icons  */}
+        <div className="floating-contact">
+          {/* Call Button */}
+          <a href="tel:7904746889" className="call-btn" aria-label="Call">
+            <img src="./telephone.png" alt="" className="img-fluid" />
+          </a>
+
+          {/* WhatsApp Button */}
+          <a
+            href="https://wa.me/917904746889?text=I%20need%20your%20service%20for%20car%20or%20bike%20wash"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp-btn"
+            aria-label="WhatsApp"
+          >
+            <img src="./whatsapp.png" alt="" className="img-fluid" />
+          </a>
+        </div>
         {/* Top Book Now with details */}
         <section className="d-none  d-md-block" style={{ overflow: "hidden" }}>
           <div className="row">
@@ -244,7 +262,6 @@ const App = () => {
             </button>
           </div>
         </section>
-
         {/* open menu form*/}
         {/* MODAL */}
         <div
@@ -344,7 +361,6 @@ const App = () => {
             </div>
           </div>
         </div>
-
         <section
           style={{ fontFamily: "Poppins, sans-serif" }}
           className="d-md-none"
@@ -404,9 +420,7 @@ const App = () => {
             </div>
           </div>
         </section>
-
         {/* End Top Book Now with details */}
-
         {/* Navbar */}
         <section
           id="home"
@@ -539,7 +553,6 @@ const App = () => {
           </div>
         </section>
         {/* End Navbar */}
-
         {/* Swiper section */}
         <section className="hero-wrapper ">
           <Swiper
@@ -572,7 +585,6 @@ const App = () => {
           </Swiper>
         </section>
         {/* end swiper */}
-
         {/* About section */}
         <section className="about-section ">
           <div className="container">
@@ -649,7 +661,6 @@ const App = () => {
           </div>
         </section>
         {/* End About */}
-
         {/* Rating */}
         <section className="container p-4 ">
           <div className="row text-center py-5 rating">
@@ -683,7 +694,6 @@ const App = () => {
           </div>
         </section>
         {/* end rating */}
-
         {/* car booking  */}
         <div className="container-fluid car-book">
           <div className="car-content">
@@ -707,7 +717,6 @@ const App = () => {
           </div>
         </div>
         {/* end car booking */}
-
         {/* car Detailing */}
         <section className="container mt-4 mb-4">
           <h1 className="text-center text-uppercase mb-4">Car Detailing</h1>
@@ -786,7 +795,6 @@ const App = () => {
           </div>
         </section>
         {/*end car Detailing */}
-
         {/* Bike Booking */}
         <section className="video-hero mt-5">
           <video className="bg-video" controls autoPlay muted loop playsInline>
@@ -813,7 +821,6 @@ const App = () => {
           </div>
         </section>
         {/*end Bike Booking */}
-
         {/* Price Detail */}`
         <section
           className="pricing-section d-flex flex-column mt-5 "
@@ -900,7 +907,7 @@ const App = () => {
                 </ul>
               </div>
 
-              <div className="col-6 d-none d-md-flex justify-content-center">
+              <div className="col-6 d-none d-md-flex justify-content-end">
                 <ul
                   className="d-flex list-unstyled align-items-center"
                   style={{ gap: "20px" }}
@@ -937,8 +944,8 @@ const App = () => {
                 </ul>
               </div>
             </div>
-
-            <div className="row d-md-none d-flex align-items-center mb-3 ">
+            {/* Mobile size only show */}
+            <div className="row d-md-none d-flex align-items-center  mb-3 ">
               <div className="col-6">
                 <h6>Connect With Us</h6>
               </div>
