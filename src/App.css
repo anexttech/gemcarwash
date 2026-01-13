@@ -145,6 +145,7 @@
     left: 0;
     background-color: #fff;
     transition: width 0.3s ease;
+    cursor: pointer !important;
   }
   
   .nav-hover:hover::after {

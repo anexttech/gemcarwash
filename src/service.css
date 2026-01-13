@@ -1,7 +1,9 @@
 /* =========================
    TOOLS SECTION
 ========================= */
-
+li{
+  cursor: pointer !important;
+}
 .tools-section {
   padding: 80px 0;
   background: #f8f9fa;
@@ -189,7 +191,7 @@
 .tools-title {
   font-size: 38px;
   font-weight: 800;
-  color: #164c94;
+  color: #dadee2;
   letter-spacing: 0.5px;
   margin-bottom: 12px;
   position: relative;
@@ -257,20 +259,145 @@
 }
 /* Back Button */
 .back-btn {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  /* background: transparent; */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #164c94, #1e90ff);
+  color: #ffffff;
   border: none;
-  font-size: 16px;
-  font-weight: 600;
-  color: rgb(22, 76, 148);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
-  padding: 6px 10px;
   transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(22, 76, 148, 0.35);
 }
 
+.back-btn .back-icon {
+  transition: transform 0.3s ease;
+}
+
+/* HOVER */
 .back-btn:hover {
-  color: #0d3a73;
-  /* transform: translateX(-4px); */
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(22, 76, 148, 0.5);
+}
+
+.back-btn:hover .back-icon {
+  transform: translateX(-6px);
+}
+
+/* ACTIVE */
+.back-btn:active {
+  transform: scale(0.96);
+}
+
+/* FOCUS (Accessibility) */
+.back-btn:focus-visible {
+  outline: 2px solid #1e90ff;
+  outline-offset: 3px;
+}
+
+
+
+.servicebody {
+  position: relative;
+  min-height: 100vh;
+  background: #0b1220;
+  overflow: hidden;
+}
+
+/* SHAPE WRAPPER */
+.shapes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* COMMON SHAPE STYLE */
+.shapes [class^="circle-"] {
+  position: fixed;
+}
+
+/* ================= LEFT STACK ================= */
+.circle-l1 {
+  width: 200px;
+  height: 200px;
+  left: -50px;
+  top: -100px;
+  background: #1e90ff;
+  border-radius: 50%;
+}
+
+.circle-l2 {
+  width: 100px;
+  height: 100px;
+  left: 60px;
+  top: 60px; /* +15px gap */
+  background: #ff7a18;
+  border-radius: 50px;
+}
+
+.circle-l3 {
+  width: 120px;
+  height: 120px;
+  left: -60px;
+  top: 370px;
+  background: #00c897;
+  border-radius: 50px;
+}
+
+.circle-l4 {
+  width: 120px;
+  height: 120px;
+  left: -60px;
+  top: 505px;
+  background: #7b61ff;
+  border-radius: 50px;
+}
+
+/* ================= RIGHT STACK ================= */
+.circle-r1 {
+  width: 120px;
+  height: 120px;
+  right: -60px;
+  top: calc(var(--header-safe-top) + 20px);
+  background: #00c6ff;
+  border-radius: 120px 0 0 120px;
+}
+
+.circle-r2 {
+  width: 120px;
+  height: 120px;
+  right: -60px;
+  top: calc(var(--header-safe-top) + 155px);
+  background: #ff4d6d;
+  border-radius: 120px 0 0 120px;
+}
+
+.circle-r3 {
+  width: 120px;
+  height: 120px;
+  right: -60px;
+  top: 430px;
+  background: #00ff99;
+  border-radius: 120px 0 0 120px;
+}
+
+.circle-r4 {
+  width: 120px;
+  height: 120px;
+  right: -60px;
+  top: 565px;
+  background: #ffd60a;
+  border-radius: 120px 0 0 120px;
+}
+
+/* ================= CONTENT ================= */
+.servicebody .container {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
 }

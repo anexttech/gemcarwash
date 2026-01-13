@@ -475,13 +475,13 @@ const App = () => {
                       Car Wash
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="#services"
-                      className="text-white nav-hover text-decoration-none"
-                    >
-                      Services
-                    </a>
+                  <li
+                    onClick={() => {
+                      nav("/service");
+                    }}
+                    className="text-white nav-hover text-decoration-none"
+                  >
+                    Services
                   </li>
                   <li>
                     <a
@@ -867,7 +867,6 @@ const App = () => {
             ))}
           </div>
         </section>
-
         {/* Footer */}
         <section className="container-fluid footer mb-0">
           <div className="container">

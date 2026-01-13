@@ -88,12 +88,30 @@ export default function WashTools() {
   const nav = useNavigate();
 
   return (
-    <section className="tools-section">
-      <div className="container position-relative">
-        {/* Back Button */}
+    <section className="tools-section mt-0 servicebody">
+      {/* BACKGROUND SHAPES */}
+      <div className="shapes">
+        <div className="circle-l1 "></div>
+        <div className="circle-l2"></div>
+        <div className="circle-l3"></div>
+        <div className="circle-l4"></div>
 
-        <button className="btn btn-primary " onClick={() => nav("/")}>
-          back
+        <div className="circle-r1"></div>
+        <div className="circle-r2"></div>
+        <div className="circle-r3"></div>
+        <div className="circle-r4"></div>
+      </div>
+
+      {/* CONTENT */}
+      <div className="container position-relative">
+        <button className="back-btn" onClick={() => nav("/")}>
+          <img
+            src="./left-arrow.png"
+            width={18}
+            alt="Back"
+            className="back-icon"
+          />
+          <span>Back to home</span>
         </button>
 
         <div className="text-center mb-5">
