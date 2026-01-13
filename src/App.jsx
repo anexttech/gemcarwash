@@ -202,17 +202,7 @@ const App = () => {
     );
   };
 
-  // ✅ Loader
-  // if (isLoading) {
-  //   return (
-  //     <div
-  //       style={{ background: "black" }}
-  //       className=" min-vh-100 d-flex justify-content-center align-items-center"
-  //     >
-  //       <img src="speeddisplay.gif" alt="Loading" />
-  //     </div>
-  //   );
-  // }
+
   if (isLoading) {
     return (
       <div className=" gem-loader">
@@ -538,7 +528,7 @@ const App = () => {
                       rel="noopener noreferrer"
                       className=" nav-link-custom"
                     >
-                      <img width={30} src="./instagram.png" alt="Instagram" />
+                      <img width={20} src="./instagram.png" alt="Instagram" />
                     </a>
                   </li>
 
@@ -549,7 +539,7 @@ const App = () => {
                       rel="noopener noreferrer"
                       className=" nav-link-custom"
                     >
-                      <img width={30} src="./whatsapp.png" alt="WhatsApp" />
+                      <img width={20} src="./whatsapp.png" alt="WhatsApp" />
                     </a>
                   </li>
 
