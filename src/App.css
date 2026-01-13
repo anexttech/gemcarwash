@@ -9,6 +9,137 @@
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
 }
+/* Initial state */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp linear forwards;
+  animation-timeline: view();
+  animation-range: entry 0% entry 40%;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Loading Page 2s */
+/* FULLSCREEN LOADER */
+.gem-loader {
+  position: fixed;
+  inset: 0;
+  background: #fffdfd;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* ===================== */
+/* CIRCLES (100x100)     */
+/* ===================== */
+.circle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgb(22, 76, 148);
+  border-radius: 50%;
+  animation: toCenterGrow 1.4s ease-in-out forwards;
+}
+
+/* Move + scale animation */
+@keyframes toCenterGrow {
+  0% {
+    width: 10px;
+    height: 10px;
+    transform: translate(0, 0);
+  }
+
+  100% {
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+/* 8 starting positions + stagger (ONE TIME ONLY) */
+
+/* left top */
+.c1 { top: 5%; left: 5%; animation-delay: 0s; }
+
+/* top center */
+.c2 { top: 2%; left: 50%; transform: translateX(-50%); animation-delay: 0.15s; }
+
+/* right top */
+.c3 { top: 5%; right: 5%; animation-delay: 0.3s; }
+
+/* right center */
+.c4 { top: 50%; right: 2%; transform: translateY(-50%); animation-delay: 0.45s; }
+
+/* right bottom */
+.c5 { bottom: 5%; right: 5%; animation-delay: 0.6s; }
+
+/* bottom center */
+.c6 { bottom: 2%; left: 50%; transform: translateX(-50%); animation-delay: 0.75s; }
+
+/* left bottom */
+.c7 { bottom: 5%; left: 5%; animation-delay: 0.9s; }
+
+/* left center */
+.c8 { top: 50%; left: 2%; transform: translateY(-50%); animation-delay: 1.05s; }
+
+/* MOVE ALL CIRCLES TO CENTER (RUN ONCE) */
+@keyframes toCenter {
+  to {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ===================== */
+/* GEM TEXT ANIMATION    */
+/* ===================== */
+.gem-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: 14px;
+  color: #fff;
+  opacity: 0;
+  animation: gemReveal 1.6s ease forwards;
+  animation-delay: 1.8s; /* starts after circles meet */
+}
+
+/* GEM text animation (more motion, one time) */
+@keyframes gemReveal {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+    letter-spacing: 30px;
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+    letter-spacing: 12px;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: 14px;
+  }
+}
+
 .loading-title{
   font-family: 'Poppins', sans-serif;
   }
@@ -437,6 +568,7 @@
   padding: 80px 0;
   background: #e6e6e6;
   overflow: hidden;
+  position: relative;
 }
 
 /* =============================

@@ -91,32 +91,25 @@ export default function WashTools() {
     <section className="tools-section mt-0 servicebody">
       {/* BACKGROUND SHAPES */}
       <div className="shapes">
-        <div className="circle-l1 "></div>
-        <div className="circle-l2"></div>
-        <div className="circle-l3"></div>
-        <div className="circle-l4"></div>
-
-        <div className="circle-r1"></div>
-        <div className="circle-r2"></div>
-        <div className="circle-r3"></div>
-        <div className="circle-r4"></div>
+        <div class="circle circle-l1"></div>
+        <div class="circle circle-l2"></div>
       </div>
 
       {/* CONTENT */}
-      <div className="container position-relative">
-        <button className="back-btn" onClick={() => nav("/")}>
-          <img
-            src="./left-arrow.png"
-            width={18}
-            alt="Back"
-            className="back-icon"
-          />
-          <span>Back to home</span>
-        </button>
 
+      <img
+        onClick={() => nav("/")}
+        src="./left-arrow.png"
+        width={38}
+        alt="Back"
+        className=" back-btn fixed-top"
+      />
+      {/* <span>Back to home</span> */}
+
+      <div className="container position-relative">
         <div className="text-center mb-5">
           <h2 className="tools-title">Car & Bike Wash Tools</h2>
-          <p className="tools-subtitle">
+          <p className="tools-subtitle text-white">
             Professional tools for powerful, safe, and efficient cleaning
           </p>
         </div>
