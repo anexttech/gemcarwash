@@ -528,7 +528,7 @@ const App = () => {
                       rel="noopener noreferrer"
                       className=" nav-link-custom"
                     >
-                      <img width={20} src="./instagram.png" alt="Instagram" />
+                      <img width={25} src="./instagram.png" alt="Instagram" />
                     </a>
                   </li>
 
@@ -539,7 +539,7 @@ const App = () => {
                       rel="noopener noreferrer"
                       className=" nav-link-custom"
                     >
-                      <img width={20} src="./whatsapp.png" alt="WhatsApp" />
+                      <img width={25} src="./whatsapp.png" alt="WhatsApp" />
                     </a>
                   </li>
 
