@@ -686,18 +686,18 @@ const App = () => {
 
         {/* car booking  */}
         <div className="container-fluid car-book">
-          <div class="car-content">
-            <h1 class="outline-fill">Premium Car Wash Service</h1>
-            <p class="type-line delay-2">
+          <div className="car-content">
+            <h1 className="outline-fill">Premium Car Wash Service</h1>
+            <p className="type-line delay-2">
               Give your car the shine it truly deserves.
             </p>
 
-            <p class="type-line delay-5">
+            <p className="type-line delay-5">
               Book your car wash in just one click.
             </p>
 
             <button
-              class="details-btn "
+              className="details-btn "
               onClick={() => {
                 nav("/car");
               }}
@@ -814,7 +814,7 @@ const App = () => {
         </section>
         {/*end Bike Booking */}
 
-        {/* Price Detail */}
+        {/* Price Detail */}`
         <section
           className="pricing-section d-flex flex-column mt-5 "
           style={{ overflowX: "hidden" }}

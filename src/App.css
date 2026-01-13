@@ -863,8 +863,9 @@
     -webkit-text-stroke: 1.5px #fff;
   }
 }
+
 .car-book {
-  background-image: url("./Lamborghini.jpg");
+  background: url("./Lamborghini.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
