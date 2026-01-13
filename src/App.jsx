@@ -524,6 +524,38 @@ const App = () => {
                     </a>
                   </li>
                 </ul>
+                <div className=" d-none d-md-flex justify-content-end">
+                <ul
+                  className=" d-flex list-unstyled align-items-center"
+                  style={{ gap: "20px" }}
+                >
+                  {/* <li className=" h4 fw-bold">Connect With Us</li> */}
+
+                  <li>
+                    <a
+                      href="https://www.instagram.com/gem_car__wash/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className=" nav-link-custom"
+                    >
+                      <img width={30} src="./instagram.png" alt="Instagram" />
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="https://wa.me/917904746889"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className=" nav-link-custom"
+                    >
+                      <img width={30} src="./whatsapp.png" alt="WhatsApp" />
+                    </a>
+                  </li>
+
+                 
+                </ul>
+              </div>
 
                 {/* Button */}
                 <div></div>
@@ -919,7 +951,7 @@ const App = () => {
             <h2>Choose your Package</h2>
             <p>
               Unlimited Washes is for you! Wash whenever you want and enjoy the
-              ease of auto monthly billing and you can cancel any time.
+              ease of auto monthly billing and you can cancel any times.
             </p>
           </div>
           <div className=" row g-4 p-2">
@@ -955,6 +987,8 @@ const App = () => {
             ))}
           </div>
         </section>
+
+
         {/* Footer */}
         <section className=" container-fluid footer mb-0" id="contact">
           <div className=" container">
