@@ -39,7 +39,9 @@ const App = () => {
       text: "Eco-friendly cleaning solutions for your vehicle.",
     },
     {
-      icon: <img src="car-wash.png" alt="" className=" img-fluid" width={100} />,
+      icon: (
+        <img src="car-wash.png" alt="" className=" img-fluid" width={100} />
+      ),
       title: "Modern Equipment",
       text: "Latest technology for efficient car cleaning.",
     },
@@ -202,7 +204,6 @@ const App = () => {
     );
   };
 
-
   if (isLoading) {
     return (
       <div className=" gem-loader">
@@ -215,7 +216,12 @@ const App = () => {
         <div className=" circle c7"></div>
         <div className=" circle c8"></div>
 
-        <div className=" gem-text">GEM</div>
+        <div
+          className=" gem-text"
+          style={{ fontFamily: "'Poppins', sans-serif;" }}
+        >
+          GEM
+        </div>
       </div>
     );
   }
@@ -434,7 +440,7 @@ const App = () => {
           style={{ backgroundColor: "rgb(22, 76, 148)" }}
         >
           {/* ================= DESKTOP NAV ================= */}
-          <div className=" d-none d-md-block">
+          <div className=" d-none d-lg-block">
             <div className=" container-md">
               <div className=" d-flex align-items-center justify-content-between py-3">
                 {/* Logo */}
@@ -515,37 +521,35 @@ const App = () => {
                   </li>
                 </ul>
                 <div className=" d-none d-md-flex justify-content-end">
-                <ul
-                  className=" d-flex list-unstyled align-items-center"
-                  style={{ gap: "20px" }}
-                >
-                  {/* <li className=" h4 fw-bold">Connect With Us</li> */}
+                  <ul
+                    className=" d-flex list-unstyled align-items-center"
+                    style={{ gap: "20px" }}
+                  >
+                    {/* <li className=" h4 fw-bold">Connect With Us</li> */}
 
-                  <li>
-                    <a
-                      href="https://www.instagram.com/gem_car__wash/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className=" nav-link-custom"
-                    >
-                      <img width={35} src="./instagram.png" alt="Instagram" />
-                    </a>
-                  </li>
+                    <li>
+                      <a
+                        href="https://www.instagram.com/gem_car__wash/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className=" nav-link-custom"
+                      >
+                        <img width={35} src="./instagram.png" alt="Instagram" />
+                      </a>
+                    </li>
 
-                  <li>
-                    <a
-                      href="https://wa.me/917904746889"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className=" nav-link-custom"
-                    >
-                      <img width={35} src="./whatsapp.png" alt="WhatsApp" />
-                    </a>
-                  </li>
-
-                 
-                </ul>
-              </div>
+                    <li>
+                      <a
+                        href="https://wa.me/917904746889"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className=" nav-link-custom"
+                      >
+                        <img width={35} src="./whatsapp.png" alt="WhatsApp" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
 
                 {/* Button */}
                 <div></div>
@@ -554,7 +558,7 @@ const App = () => {
           </div>
 
           {/* ================= MOBILE NAV ================= */}
-          <div className=" d-md-none">
+          <div className=" d-lg-none">
             <div className=" container py-3 d-flex align-items-center justify-content-between">
               <img src="gemlogo-bg.png" width={80} alt="BrandLogo" />
 
@@ -687,7 +691,15 @@ const App = () => {
                     <h1 className=" delay-2">{item.title}</h1>
                     <h1 className=" delay-3">Gem car wash </h1>
                     <p className=" delay-3">{item.desc}</p>
-                    <button className=" hero delay-4">Our Works</button>
+
+                    <button
+                      onClick={() => {
+                        nav("/service");
+                      }}
+                      className=" hero delay-4"
+                    >
+                      Our Works
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
@@ -695,6 +707,7 @@ const App = () => {
           </Swiper>
         </section>
         {/* end swiper */}
+
         {/* About section */}
         <section className=" about-section" id="about">
           <div className=" container">
@@ -731,8 +744,9 @@ const App = () => {
                   From exterior washing to deep interior cleaning, we guarantee
                   quality, care, and customer satisfaction.
                 </p>
-
-                <button className=" about-btn">CONTACT US</button>
+                <a href="#contact">
+                  <button className="about-btn">CONTACT US</button>
+                </a>
               </div>
             </div>
             <div
@@ -771,6 +785,30 @@ const App = () => {
           </div>
         </section>
         {/* End About */}
+
+        {/* car booking  */}
+        <div className=" container-fluid car-book">
+          <div className=" car-content">
+            <h1 className=" outline-fill">Premium Car Wash Service</h1>
+            <p className=" type-line delay-2">
+              Give your car the shine it truly deserves.
+            </p>
+
+            <p className=" type-line delay-5">
+              Book your car wash in just one click.
+            </p>
+
+            <button
+              className=" details-btn "
+              onClick={() => {
+                nav("/car");
+              }}
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+        {/* end car booking */}
         {/* Rating */}
         <section className=" container p-4 ">
           <div className=" row text-center py-5 rating">
@@ -804,29 +842,6 @@ const App = () => {
           </div>
         </section>
         {/* end rating */}
-        {/* car booking  */}
-        <div className=" container-fluid car-book">
-          <div className=" car-content">
-            <h1 className=" outline-fill">Premium Car Wash Service</h1>
-            <p className=" type-line delay-2">
-              Give your car the shine it truly deserves.
-            </p>
-
-            <p className=" type-line delay-5">
-              Book your car wash in just one click.
-            </p>
-
-            <button
-              className=" details-btn "
-              onClick={() => {
-                nav("/car");
-              }}
-            >
-              Book Now
-            </button>
-          </div>
-        </div>
-        {/* end car booking */}
         {/* car Detailing */}
         <section id="detailing" className=" container mt-4 mb-4">
           <h1 className=" text-center text-uppercase mb-4">Car Detailing</h1>
@@ -947,7 +962,7 @@ const App = () => {
           <div className=" row g-4 p-2">
             {pricingPlans.map((plan, index) => (
               <div className=" col-lg-4 col-md-6" key={index}>
-                <div className={ `wash-card ${plan.best ? "best" : ""}`}>
+                <div className={`wash-card ${plan.best ? "best" : ""}`}>
                   {plan.best && <span className=" badge">Best Plan</span>}
 
                   <h6 className=" plan-title">{plan.title}</h6>
@@ -977,7 +992,6 @@ const App = () => {
             ))}
           </div>
         </section>
-
 
         {/* Footer */}
         <section className=" container-fluid footer mb-0" id="contact">
