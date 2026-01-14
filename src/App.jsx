@@ -931,7 +931,7 @@ const App = () => {
           </div>
         </section>
         {/*end Bike Booking */}
-        {/* Price Detail */}`
+        {/* Price Detail */}
         <section
           className=" pricing-section d-flex flex-column mt-5 "
           style={{ overflowX: "hidden" }}
