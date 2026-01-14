@@ -7,7 +7,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Car from "./Car.jsx";
 import Bike from "./Bike.jsx";
-import Gallery from "./gallery.jsx";
+import Gallery from "./Gallery.jsx";
 import Services from "./Service.jsx";
 
 
